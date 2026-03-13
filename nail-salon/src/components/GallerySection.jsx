@@ -2,6 +2,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
+import { Link } from "react-router-dom";
 import 'swiper/css';
 
 import nail1 from "../assets/images/elegant-french-mani.jpg";
@@ -26,7 +27,7 @@ const nails = [
 const pedicures = [
   { src: pedi1, alt: "Luxury spa pedicure", label: "Spa Pedicure" },
   { src: pedi2, alt: "Glossy gel pedicure", label: "Gel Finish" },
-  { src: pedi3, alt: "Classic french pedicure", label: "French Pedicure" },
+//   { src: pedi3, alt: "Classic french pedicure", label: "French Pedicure" },
   { src: pedi4, alt: "Moroccan wrap pedicure", label: "Moroccan Wrap" },
   { src: pedi5, alt: "Citrus jelly pedicure", label: "Citrus Jelly Soak" },
   { src: pedi6, alt: "Gel toes", label: "Gel Toes" },
@@ -293,12 +294,12 @@ export default function GallerySection() {
 
         {/* CTA */}
         <div className={`gal-cta-wrap ${inView ? 'visible' : ''}`}>
-          <a href="#pricing" className="gal-cta">
-            <span>Book Your Appointment</span>
-            <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-            </svg>
-          </a>
+          <Link to="/booking" className="gal-cta">
+  <span>Book Your Appointment</span>
+  <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+  </svg>
+</Link>
         </div>
       </section>
     </>

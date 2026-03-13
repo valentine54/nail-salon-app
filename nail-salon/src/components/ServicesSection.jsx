@@ -1,9 +1,9 @@
 // src/components/ServicesSection.jsx
 import { useEffect, useRef, useState } from 'react';
-import gel from "../assets/images/elegant-french-mani.jpg";
+import gel from "../assets/images/pedi-1.jpg";
 import acrylic from "../assets/images/gold-foil-nail-art.jpg";
 import art from "../assets/images/blush-pink-gel-nails.jpg";
-import pedicure from "../assets/images/elegant-french-mani.jpg";
+import pedicure from "../assets/images/pedi-5.jpg";
 import bridal from "../assets/images/gold-foil-nail-art.jpg";
 
 const services = [

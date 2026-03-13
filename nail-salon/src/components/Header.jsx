@@ -1,6 +1,7 @@
 // src/components/Header.jsx
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
+import logo from "../assets/images/finer-logo.png"
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -57,15 +58,21 @@ export default function Header() {
           flex-shrink: 0;
           transition: border-color 0.3s ease;
         }
-        .hdr-logo-mark::before {
-          content: '';
-          position: absolute;
-          inset: 3px;
-          border: 1px solid rgba(196,158,90,0.2);
-        }
+//         .hdr-logo-mark::before {
+//           content: '';
+//           position: absolute;
+//           inset: 3px;
+//           border: 1px solid rgba(196,158,90,0.2);
+//         }
         .hdr-logo-mark svg {
           color: #c49e5a;
         }
+
+        .hdr-logo-mark img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills the square */
+}
         .hdr-logo:hover .hdr-logo-mark {
           border-color: rgba(196,158,90,0.9);
         }
@@ -243,17 +250,17 @@ export default function Header() {
       <header className={`hdr-root ${scrolled ? 'scrolled' : ''}`}>
 
         {/* Logo */}
-        <Link to="/" className="hdr-logo">
-          <div className="hdr-logo-mark">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-              <path d="M12 2C9 7 4 8 4 13a8 8 0 0 0 16 0c0-5-5-6-8-11Z"/>
-            </svg>
-          </div>
-          <div className="hdr-logo-text">
-            <span className="hdr-logo-name"><em>Finer</em> Nails Spa</span>
-            <span className="hdr-logo-sub">The PLACE Complex, Kisii</span>
-          </div>
-        </Link>
+       <Link to="/" className="hdr-logo">
+  <div className="hdr-logo-mark">
+{/*     <img src="/logo.png" alt="Finer Nails Spa Logo" className="logo-img" /> */}
+       <img src={logo} alt="Finer Nails Spa Logo" />
+  </div>
+
+  <div className="hdr-logo-text">
+    <span className="hdr-logo-name"><em>Finer</em> Nails Spa</span>
+    <span className="hdr-logo-sub">The PLACE Complex, Kisii</span>
+  </div>
+</Link>
 
         {/* Desktop right */}
         <div className="hdr-right">

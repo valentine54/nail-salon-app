@@ -1,6 +1,7 @@
 // src/components/HeroSection.jsx
 import { useEffect, useRef } from 'react';
 import nailHero from '../assets/images/landingPage.jpg';
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   const parallaxRef = useRef(null);
@@ -309,12 +310,12 @@ export default function HeroSection() {
           </p>
 
           <div className="hero-ctas">
-            <a href="#pricing" className="hero-btn-primary">
-              <span>Book Appointment</span>
-              <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
-              </svg>
-            </a>
+            <Link to="/booking" className="gal-cta">
+  <span>Book Your Appointment</span>
+  <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+  </svg>
+</Link>
             <a href="#gallery" className="hero-btn-ghost">View Our Work</a>
           </div>
         </div>
