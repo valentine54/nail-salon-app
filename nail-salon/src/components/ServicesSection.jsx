@@ -267,9 +267,7 @@ function ServiceCard({ service, index }) {
         </div>
         <p className="svc-desc">{service.description}</p>
         <p className="svc-detail">{service.detail}</p>
-        <a href="#booking" className="svc-cta">
-          <span>Book This Service</span>
-        </a>
+
       </div>
     </div>
   );
@@ -310,8 +308,8 @@ export default function ServicesSection() {
           filter: blur(120px);
           pointer-events: none;
         }
-        .svc-orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(196,158,90,0.08) 0%, transparent 70%); top: -100px; left: -150px; }
-        .svc-orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(196,158,90,0.06) 0%, transparent 70%); bottom: 0; right: -100px; }
+        .svc-orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%); top: -100px; left: -150px; }
+        .svc-orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%); bottom: 0; right: -100px; }
 
         .svc-grain {
           position: absolute; inset: 0; pointer-events: none; opacity: 0.025;
@@ -337,18 +335,18 @@ export default function ServicesSection() {
         }
         .svc-eyebrow {
           font-size: 0.65rem; font-weight: 500; letter-spacing: 0.3em;
-          text-transform: uppercase; color: #c49e5a; margin-bottom: 1.1rem;
+          text-transform: uppercase; color: #ffffff; margin-bottom: 1.1rem;
         }
         .svc-rule { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; }
         .svc-rule-line { width: 44px; height: 1px; background: linear-gradient(to right, transparent, rgba(196,158,90,0.5)); }
         .svc-rule-line.r { background: linear-gradient(to left, transparent, rgba(196,158,90,0.5)); }
-        .svc-rule-gem { width: 5px; height: 5px; background: #c49e5a; transform: rotate(45deg); }
+        .svc-rule-gem { width: 5px; height: 5px; background: #ffffff; transform: rotate(45deg); }
         .svc-title {
           font-family: 'Cormorant Garamond', serif;
           font-size: clamp(2.5rem, 4.5vw, 4rem);
           font-weight: 300; color: #f5f0e8; line-height: 1.08;
         }
-        .svc-title em { font-style: italic; color: #c49e5a; }
+        .svc-title em { font-style: italic; color: #ffffff; }
         .svc-subtitle {
           margin-top: 0.9rem; font-size: 0.83rem; font-weight: 300;
           color: rgba(245,240,232,0.35); letter-spacing: 0.05em; max-width: 380px;
@@ -381,7 +379,7 @@ export default function ServicesSection() {
           letter-spacing: 0.22em;
           text-transform: uppercase;
           padding: 0.65rem 1.8rem;
-          border: 1px solid rgba(196,158,90,0.2);
+          border: 1px solid rgba(255,255,255,0.18);
           background: transparent;
           color: rgba(245,240,232,0.35);
           cursor: pointer;
@@ -391,16 +389,16 @@ export default function ServicesSection() {
         .svc-tab::before {
           content: '';
           position: absolute; inset: 0;
-          background: rgba(196,158,90,0.06);
+          background: rgba(255,255,255,0.05);
           transform: translateX(-101%);
           transition: transform 0.3s ease;
         }
-        .svc-tab:hover { color: rgba(245,240,232,0.6); border-color: rgba(196,158,90,0.35); }
+        .svc-tab:hover { color: rgba(245,240,232,0.6); border-color: rgba(255,255,255,0.32); }
         .svc-tab:hover::before { transform: translateX(0); }
 
         .svc-tab.active {
-          background: #c49e5a;
-          border-color: #c49e5a;
+          background: #ffffff;
+          border-color: #ffffff;
           color: #0e0c09;
         }
         .svc-tab.active::before { display: none; }
@@ -408,7 +406,7 @@ export default function ServicesSection() {
         .svc-tab-divider {
           width: 1px;
           height: 14px;
-          background: rgba(196,158,90,0.2);
+          background: rgba(255,255,255,0.18);
         }
 
         /* ── Grid ── */
@@ -419,8 +417,8 @@ export default function ServicesSection() {
           background: transparent; /* Removed the background color here */
           transition: opacity 0.22s ease;
           /* Optional: Add a top and left border to the grid if you want a full frame */
-          border-top: 1px solid rgba(196,158,90,0.1);
-          border-left: 1px solid rgba(196,158,90,0.1);
+          border-top: 1px solid rgba(255,255,255,0.1);
+          border-left: 1px solid rgba(255,255,255,0.1);
         }
         .svc-grid.fading { opacity: 0; }
 
@@ -438,8 +436,8 @@ export default function ServicesSection() {
           opacity: 0;
           animation: cardIn 0.5s ease forwards;
           /* Add borders here to create the grid lines only where cards exist */
-          border-right: 1px solid rgba(196,158,90,0.1);
-          border-bottom: 1px solid rgba(196,158,90,0.1);
+          border-right: 1px solid rgba(255,255,255,0.1);
+          border-bottom: 1px solid rgba(255,255,255,0.1);
         }
         .svc-card:hover { background: #161210; }
 
@@ -467,7 +465,7 @@ export default function ServicesSection() {
           position: absolute; top: 1rem; left: 1rem;
           font-size: 0.58rem; font-weight: 600; letter-spacing: 0.2em;
           text-transform: uppercase; color: #0e0c09;
-          background: #c49e5a; padding: 0.3rem 0.75rem;
+          background: #ffffff; padding: 0.3rem 0.75rem;
         }
         .svc-price-badge {
           position: absolute; bottom: 1rem; right: 1rem;
@@ -481,7 +479,7 @@ export default function ServicesSection() {
           display: flex;
           flex-direction: column;
           flex: 1;
-          border-top: 1px solid rgba(196,158,90,0.08);
+          border-top: 1px solid rgba(255,255,255,0.07);
         }
         .svc-name-row {
           display: flex;
@@ -495,12 +493,12 @@ export default function ServicesSection() {
           color: #f5f0e8; letter-spacing: 0.01em;
         }
         .svc-arrow {
-          font-size: 0.85rem; color: rgba(196,158,90,0.3);
+          font-size: 0.85rem; color: rgba(255,255,255,0.28);
           transition: color 0.25s ease, transform 0.3s ease;
           flex-shrink: 0;
         }
         .svc-card:hover .svc-arrow {
-          color: #c49e5a;
+          color: #ffffff;
           transform: translateX(4px);
         }
         .svc-desc {
@@ -513,37 +511,12 @@ export default function ServicesSection() {
           letter-spacing: 0.18em; text-transform: uppercase;
           color: rgba(196,158,90,0.5);
           padding-top: 0.85rem;
-          border-top: 1px solid rgba(196,158,90,0.1);
+          border-top: 1px solid rgba(255,255,255,0.1);
           margin-bottom: 1.2rem;
           line-height: 1.8;
         }
-        .svc-cta {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
-          background: transparent;
-          border: 1px solid rgba(196,158,90,0.25);
-          color: rgba(196,158,90,0.7);
-          font-family: 'Jost', sans-serif;
-          font-size: 0.65rem; font-weight: 500;
-          letter-spacing: 0.2em; text-transform: uppercase;
-          padding: 0.6rem 1.2rem;
-          text-decoration: none;
-          align-self: flex-start;
-          position: relative; overflow: hidden;
-          transition: border-color 0.3s ease;
-        }
-        .svc-cta::before {
-          content: ''; position: absolute; inset: 0;
-          background: rgba(196,158,90,0.08);
-          transform: translateX(-101%);
-          transition: transform 0.3s ease;
-        }
-        .svc-cta span { position: relative; z-index: 1; }
-        .svc-cta:hover { border-color: rgba(196,158,90,0.6); }
-        .svc-cta:hover::before { transform: translateX(0); }
 
-        /* ── Responsive ── */
+            /* ── Responsive ── */
         @media (max-width: 900px) {
           .svc-grid { grid-template-columns: 1fr 1fr; }
         }
@@ -581,8 +554,8 @@ export default function ServicesSection() {
   style={{
     marginTop: '1.2rem',
     padding: '1rem 1.3rem',
-    background: 'rgba(196,158,90,0.06)',
-    border: '1px solid rgba(196,158,90,0.2)',
+    background: 'rgba(255,255,255,0.05)',
+    border: '1px solid rgba(255,255,255,0.18)',
     borderRadius: '10px',
     maxWidth: '480px',
     marginLeft: 'auto',
@@ -598,7 +571,7 @@ export default function ServicesSection() {
   }}
   onMouseEnter={(e) => {
     e.currentTarget.style.transform = 'scale(1.02)';
-    e.currentTarget.style.boxShadow = '0 6px 20px rgba(196,158,90,0.12)';
+    e.currentTarget.style.boxShadow = '0 6px 20px rgba(255,255,255,0.1)';
   }}
   onMouseLeave={(e) => {
     e.currentTarget.style.transform = 'scale(1)';
@@ -609,7 +582,7 @@ export default function ServicesSection() {
     ✦
   </span>
   <div style={{ fontStyle: 'italic', marginBottom: '0.6rem', lineHeight: 1.6 }}>
-    <strong style={{ color: '#c49e5a', fontWeight: 500 }}>Extra charges</strong> for{' '}
+    <strong style={{ color: '#ffffff', fontWeight: 500 }}>Extra charges</strong> for{' '}
     <span style={{ color: '#f5f0e8' }}>Chrome, Pearl, Ombre, Stones &amp; Charms</span>
   </div>
   <div style={{
@@ -626,7 +599,7 @@ export default function ServicesSection() {
       fontFamily: "'Cormorant Garamond', serif",
       fontSize: '1.4rem',
       fontWeight: 300,
-      color: '#c49e5a',
+      color: '#ffffff',
       marginLeft: '0.3rem'
     }}>
       50/=

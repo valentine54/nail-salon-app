@@ -93,7 +93,7 @@ export default function LocationSection() {
         }
         .loc-orb-2 {
           width: 400px; height: 400px;
-          background: radial-gradient(circle, rgba(196,158,90,0.08) 0%, transparent 70%);
+          background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%);
           bottom: -80px; left: -60px;
         }
 
@@ -118,14 +118,14 @@ export default function LocationSection() {
           flex: 1;
           max-width: 60px;
           height: 1px;
-          background: linear-gradient(to right, transparent, rgba(196,158,90,0.6));
+          background: linear-gradient(to right, transparent, rgba(255,255,255,0.55));
         }
         .loc-rule-line.right {
-          background: linear-gradient(to left, transparent, rgba(196,158,90,0.6));
+          background: linear-gradient(to left, transparent, rgba(255,255,255,0.55));
         }
         .loc-rule-diamond {
           width: 6px; height: 6px;
-          background: #c49e5a;
+          background: #ffffff;
           transform: rotate(45deg);
         }
 
@@ -136,7 +136,7 @@ export default function LocationSection() {
           font-weight: 500;
           letter-spacing: 0.3em;
           text-transform: uppercase;
-          color: #c49e5a;
+          color: #ffffff;
         }
 
         /* Main heading */
@@ -151,7 +151,7 @@ export default function LocationSection() {
         }
         .loc-heading em {
           font-style: italic;
-          color: #c49e5a;
+          color: #ffffff;
         }
 
         .loc-tagline {
@@ -169,7 +169,7 @@ export default function LocationSection() {
           gap: 3px;
           width: 100%;
           max-width: 1000px;
-          border: 1px solid rgba(196,158,90,0.15);
+          border: 1px solid rgba(255,255,255,0.12);
           border-radius: 2px;
         }
 
@@ -197,7 +197,7 @@ export default function LocationSection() {
           left: 1.5rem;
           background: rgba(14,12,9,0.88);
           backdrop-filter: blur(12px);
-          border: 1px solid rgba(196,158,90,0.25);
+          border: 1px solid rgba(255,255,255,0.22);
           border-radius: 2px;
           padding: 0.75rem 1.1rem;
           color: #f5f0e8;
@@ -208,7 +208,7 @@ export default function LocationSection() {
         }
         .loc-map-badge strong {
           display: block;
-          color: #c49e5a;
+          color: #ffffff;
           font-weight: 500;
           margin-bottom: 0.15rem;
           font-size: 0.72rem;
@@ -225,7 +225,7 @@ export default function LocationSection() {
 
         .loc-detail-item {
           padding: 2rem 2.2rem;
-          border-bottom: 1px solid rgba(196,158,90,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.07);
           display: flex;
           align-items: flex-start;
           gap: 1.25rem;
@@ -242,18 +242,18 @@ export default function LocationSection() {
           border-bottom: none;
         }
         .loc-detail-item:hover {
-          background: rgba(196,158,90,0.04);
+          background: rgba(255,255,255,0.03);
         }
 
         .loc-detail-icon {
           width: 40px;
           height: 40px;
-          border: 1px solid rgba(196,158,90,0.25);
+          border: 1px solid rgba(255,255,255,0.22);
           border-radius: 1px;
           display: flex;
           align-items: center;
           justify-content: center;
-          color: #c49e5a;
+          color: #ffffff;
           flex-shrink: 0;
           margin-top: 0.1rem;
         }
@@ -263,7 +263,7 @@ export default function LocationSection() {
           font-weight: 500;
           letter-spacing: 0.25em;
           text-transform: uppercase;
-          color: #c49e5a;
+          color: #ffffff;
           margin-bottom: 0.35rem;
         }
         .loc-detail-value {
@@ -286,8 +286,8 @@ export default function LocationSection() {
           width: 100%;
           max-width: 1000px;
           margin-top: 3px;
-          background: rgba(196,158,90,0.06);
-          border: 1px solid rgba(196,158,90,0.15);
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.12);
           border-radius: 2px;
           display: flex;
           align-items: center;
@@ -317,7 +317,7 @@ export default function LocationSection() {
           gap: 0.6rem;
           background: transparent;
           border: 1px solid rgba(196,158,90,0.5);
-          color: #c49e5a;
+          color: #ffffff;
           font-family: 'Jost', sans-serif;
           font-size: 0.72rem;
           font-weight: 500;
@@ -331,9 +331,9 @@ export default function LocationSection() {
           white-space: nowrap;
         }
         .loc-cta-btn:hover {
-          background: #c49e5a;
+          background: #ffffff;
           color: #0e0c09;
-          border-color: #c49e5a;
+          border-color: #ffffff;
         }
         .loc-cta-btn svg {
           transition: transform 0.3s ease;

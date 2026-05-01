@@ -147,18 +147,18 @@ export default function GallerySection() {
         .gal-header.visible { opacity: 1; transform: translateY(0); }
         .gal-eyebrow {
           font-size: 0.65rem; font-weight: 500; letter-spacing: 0.3em;
-          text-transform: uppercase; color: #c49e5a; display: block; margin-bottom: 1.1rem;
+          text-transform: uppercase; color: #ffffff; display: block; margin-bottom: 1.1rem;
         }
         .gal-rule { display: flex; align-items: center; justify-content: center; gap: 0.75rem; margin-bottom: 1.1rem; }
-        .gal-rule-line { width: 44px; height: 1px; background: linear-gradient(to right, transparent, rgba(196,158,90,0.5)); }
-        .gal-rule-line.r { background: linear-gradient(to left, transparent, rgba(196,158,90,0.5)); }
-        .gal-rule-gem { width: 5px; height: 5px; background: #c49e5a; transform: rotate(45deg); }
+        .gal-rule-line { width: 44px; height: 1px; background: linear-gradient(to right, transparent, rgba(255,255,255,0.45)); }
+        .gal-rule-line.r { background: linear-gradient(to left, transparent, rgba(255,255,255,0.45)); }
+        .gal-rule-gem { width: 5px; height: 5px; background: #ffffff; transform: rotate(45deg); }
         .gal-title {
           font-family: 'Cormorant Garamond', serif;
           font-size: clamp(2.5rem, 4.5vw, 4rem);
           font-weight: 300; color: #f5f0e8; line-height: 1.08;
         }
-        .gal-title em { font-style: italic; color: #c49e5a; }
+        .gal-title em { font-style: italic; color: #ffffff; }
         .gal-sub {
           margin-top: 0.9rem; font-size: 0.83rem; font-weight: 300;
           color: rgba(245,240,232,0.35); letter-spacing: 0.05em;
@@ -181,10 +181,10 @@ export default function GallerySection() {
           transition: opacity 0.6s ease, transform 0.6s ease;
         }
         .gal-row-label.visible { opacity: 1; transform: translateX(0); }
-        .gal-row-label-line { width: 28px; height: 1px; background: rgba(196,158,90,0.4); }
+        .gal-row-label-line { width: 28px; height: 1px; background: rgba(255,255,255,0.38); }
         .gal-row-label-text {
           font-size: 0.6rem; font-weight: 600; letter-spacing: 0.25em;
-          text-transform: uppercase; color: rgba(196,158,90,0.55);
+          text-transform: uppercase; color: rgba(255,255,255,0.5);
         }
 
         /* Slide */
@@ -237,7 +237,7 @@ export default function GallerySection() {
           align-items: center;
           gap: 0.7rem;
           background: transparent;
-          border: 1px solid rgba(196,158,90,0.35);
+          border: 1px solid rgba(255,255,255,0.32);
           color: rgba(196,158,90,0.8);
           font-family: 'Jost', sans-serif;
           font-size: 0.7rem; font-weight: 500;
@@ -248,7 +248,7 @@ export default function GallerySection() {
         }
         .gal-cta::before {
           content: ''; position: absolute; inset: 0;
-          background: rgba(196,158,90,0.08);
+          background: rgba(255,255,255,0.07);
           transform: translateX(-101%);
           transition: transform 0.35s cubic-bezier(.25,.46,.45,.94);
         }

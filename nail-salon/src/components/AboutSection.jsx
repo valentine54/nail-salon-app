@@ -53,8 +53,8 @@ export default function AboutSection() {
           position: absolute; border-radius: 50%;
           filter: blur(110px); pointer-events: none;
         }
-        .abt-orb-1 { width: 550px; height: 550px; background: radial-gradient(circle, rgba(196,158,90,0.09) 0%, transparent 70%); top: -100px; right: -120px; }
-        .abt-orb-2 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(196,158,90,0.06) 0%, transparent 70%); bottom: -60px; left: -60px; }
+        .abt-orb-1 { width: 550px; height: 550px; background: radial-gradient(circle, rgba(255,255,255,0.07) 0%, transparent 70%); top: -100px; right: -120px; }
+        .abt-orb-2 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%); bottom: -60px; left: -60px; }
 
         /* Grain */
         .abt-grain {
@@ -85,14 +85,14 @@ export default function AboutSection() {
 
         .abt-eyebrow {
           font-size: 0.65rem; font-weight: 500; letter-spacing: 0.3em;
-          text-transform: uppercase; color: #c49e5a;
+          text-transform: uppercase; color: #ffffff;
           display: block; margin-bottom: 1.1rem;
         }
         .abt-rule {
           display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.2rem;
         }
         .abt-rule-line { width: 44px; height: 1px; background: linear-gradient(to right, transparent, rgba(196,158,90,0.5)); }
-        .abt-rule-gem { width: 5px; height: 5px; background: #c49e5a; transform: rotate(45deg); }
+        .abt-rule-gem { width: 5px; height: 5px; background: #ffffff; transform: rotate(45deg); }
 
         .abt-title {
           font-family: 'Cormorant Garamond', serif;
@@ -101,7 +101,7 @@ export default function AboutSection() {
           line-height: 1.05; letter-spacing: -0.01em;
           margin-bottom: 2rem;
         }
-        .abt-title em { font-style: italic; color: #c49e5a; display: block; }
+        .abt-title em { font-style: italic; color: #ffffff; display: block; }
 
         .abt-body {
           font-size: 0.9rem; font-weight: 300;
@@ -116,18 +116,18 @@ export default function AboutSection() {
         /* Stats row */
         .abt-stats {
           display: flex; gap: 0; margin-top: 2.8rem;
-          border: 1px solid rgba(196,158,90,0.12);
+          border: 1px solid rgba(255,255,255,0.1);
         }
         .abt-stat {
           flex: 1; padding: 1.4rem 1.2rem; text-align: center;
-          border-right: 1px solid rgba(196,158,90,0.12);
+          border-right: 1px solid rgba(255,255,255,0.1);
         }
         .abt-stat:last-child { border-right: none; }
         .abt-stat-num {
           display: block;
           font-family: 'Cormorant Garamond', serif;
           font-size: 2rem; font-weight: 300;
-          color: #c49e5a; line-height: 1;
+          color: #ffffff; line-height: 1;
         }
         .abt-stat-lbl {
           display: block; margin-top: 0.35rem;
@@ -143,12 +143,12 @@ export default function AboutSection() {
         }
         .abt-sig-avatar {
           width: 44px; height: 44px;
-          border: 1px solid rgba(196,158,90,0.3);
+          border: 1px solid rgba(255,255,255,0.28);
           border-radius: 50%;
           display: flex; align-items: center; justify-content: center;
           font-family: 'Cormorant Garamond', serif;
           font-size: 1rem; font-weight: 400; font-style: italic;
-          color: #c49e5a; flex-shrink: 0;
+          color: #ffffff; flex-shrink: 0;
         }
         .abt-sig-name {
           font-family: 'Cormorant Garamond', serif;
@@ -157,14 +157,14 @@ export default function AboutSection() {
         }
         .abt-sig-role {
           font-size: 0.6rem; font-weight: 500; letter-spacing: 0.18em;
-          text-transform: uppercase; color: rgba(196,158,90,0.45);
+          text-transform: uppercase; color: rgba(255,255,255,0.4);
           display: block; margin-top: 0.2rem;
         }
 
         /* ── RIGHT COLUMN ── */
         .abt-right {
           display: flex; flex-direction: column; gap: 1px;
-          background: rgba(196,158,90,0.1);
+          background: rgba(255,255,255,0.1);
         }
 
         .abt-pillar {
@@ -181,7 +181,7 @@ export default function AboutSection() {
         .abt-pillar-num {
           font-family: 'Cormorant Garamond', serif;
           font-size: 0.8rem; font-weight: 300;
-          color: rgba(196,158,90,0.35);
+          color: rgba(255,255,255,0.32);
           flex-shrink: 0; padding-top: 0.2rem;
           letter-spacing: 0.08em;
         }
@@ -201,7 +201,7 @@ export default function AboutSection() {
         /* Decorative quote block */
         .abt-quote {
           background: transparent;
-          border: 1px solid rgba(196,158,90,0.14);
+          border: 1px solid rgba(255,255,255,0.12);
           padding: 2rem;
           margin-top: 1px;
           opacity: 0; transform: translateY(14px);
@@ -211,7 +211,7 @@ export default function AboutSection() {
         .abt-quote-mark {
           font-family: 'Cormorant Garamond', serif;
           font-size: 3.5rem; font-weight: 300;
-          color: rgba(196,158,90,0.2); line-height: 0.5;
+          color: rgba(255,255,255,0.18); line-height: 0.5;
           display: block; margin-bottom: 1rem;
         }
         .abt-quote-text {
@@ -224,7 +224,7 @@ export default function AboutSection() {
           display: block; margin-top: 1rem;
           font-size: 0.6rem; font-weight: 500;
           letter-spacing: 0.22em; text-transform: uppercase;
-          color: rgba(196,158,90,0.4);
+          color: rgba(255,255,255,0.38);
         }
 
         @media (max-width: 900px) {
@@ -233,7 +233,7 @@ export default function AboutSection() {
         @media (max-width: 600px) {
           .abt-root { padding: 6rem 0 5rem; }
           .abt-stats { flex-direction: column; }
-          .abt-stat { border-right: none; border-bottom: 1px solid rgba(196,158,90,0.12); }
+          .abt-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
           .abt-stat:last-child { border-bottom: none; }
         }
       `}</style>

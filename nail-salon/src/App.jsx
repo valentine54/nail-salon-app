@@ -15,7 +15,7 @@ import PricingAndBookingSection from './components/PricingAndBookingSection';
 import LocationSection from './components/LocationSection';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
-
+import WhatsAppFloat from "./components/WhatsAppFloat";
 function HomePage() {
   return (
     <>
@@ -62,6 +62,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
           <Footer />
+           <WhatsAppFloat />
         </div>
       </AuthProvider>
     </BrowserRouter>

@@ -78,7 +78,7 @@ export default function HeroSection() {
         .hero-content {
           position: relative;
           z-index: 10;
-          padding: 0 5vw 85vh;
+          padding: 0 5vw 15vh;
           max-width: 820px;
           animation: heroFadeUp 1.2s cubic-bezier(.25,.46,.45,.94) both;
         }
@@ -92,12 +92,12 @@ export default function HeroSection() {
         }
         .hero-eyebrow-line {
           width: 36px; height: 1px;
-          background: linear-gradient(to right, transparent, #c49e5a);
+          background: linear-gradient(to right, transparent, #ffffff);
         }
         .hero-eyebrow-text {
           font-size: 0.65rem; font-weight: 500;
           letter-spacing: 0.32em; text-transform: uppercase;
-          color: #c49e5a;
+          color: #ffffff;
         }
 
         /* Main heading */
@@ -112,7 +112,7 @@ export default function HeroSection() {
         }
         .hero-h1 em {
           font-style: italic;
-          color: #c49e5a;
+          color: #ffffff;
           display: block;
         }
 
@@ -123,8 +123,8 @@ export default function HeroSection() {
           gap: 0.7rem;
           margin: 2rem 0;
         }
-        .hero-div-line { flex: 1; max-width: 80px; height: 1px; background: rgba(196,158,90,0.35); }
-        .hero-div-gem { width: 4px; height: 4px; background: #c49e5a; transform: rotate(45deg); }
+        .hero-div-line { flex: 1; max-width: 80px; height: 1px; background: rgba(255,255,255,0.32); }
+        .hero-div-gem { width: 4px; height: 4px; background: #ffffff; transform: rotate(45deg); }
 
         /* Sub */
         .hero-sub {
@@ -150,8 +150,8 @@ export default function HeroSection() {
           align-items: center;
           gap: 0.6rem;
           background: transparent;
-          border: 1px solid rgba(196,158,90,0.55);
-          color: #c49e5a;
+          border: 1px solid rgba(255,255,255,0.45);
+          color: #ffffff;
           font-family: 'Jost', sans-serif;
           font-size: 0.7rem;
           font-weight: 500;
@@ -167,7 +167,7 @@ export default function HeroSection() {
         .hero-btn-primary::before {
           content: '';
           position: absolute; inset: 0;
-          background: #c49e5a;
+          background: #ffffff;
           transform: translateX(-101%);
           transition: transform 0.35s cubic-bezier(.25,.46,.45,.94);
         }
@@ -200,7 +200,7 @@ export default function HeroSection() {
           position: absolute;
           bottom: 0; left: 0; right: 0;
           z-index: 10;
-          border-top: 1px solid rgba(196,158,90,0.1);
+          border-top: 1px solid rgba(255,255,255,0.1);
           display: flex;
           justify-content: flex-end;
         }
@@ -210,14 +210,14 @@ export default function HeroSection() {
         }
         .hero-strip-item {
           padding: 1.1rem 2rem;
-          border-left: 1px solid rgba(196,158,90,0.1);
+          border-left: 1px solid rgba(255,255,255,0.1);
           text-align: center;
         }
         .hero-strip-num {
           font-family: 'Cormorant Garamond', serif;
           font-size: 1.4rem;
           font-weight: 300;
-          color: #c49e5a;
+          color: #ffffff;
           display: block;
           line-height: 1;
         }
@@ -273,7 +273,7 @@ export default function HeroSection() {
         }
 
         @media (max-width: 640px) {
-          .hero-content { padding: 0 1.5rem 14vh; }
+          .hero-content { padding: 0 1.5rem 8vh; }
           .hero-strip-item { padding: 0.9rem 1.2rem; }
           .hero-scroll { display: none; }
         }

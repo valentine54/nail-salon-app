@@ -11,7 +11,7 @@ export default function Footer() {
 
         .ft-root {
           background: #080604;
-          border-top: 1px solid rgba(196,158,90,0.1);
+          border-top: 1px solid rgba(255,255,255,0.1);
           font-family: 'Jost', sans-serif;
           position: relative;
           overflow: hidden;
@@ -24,7 +24,7 @@ export default function Footer() {
         }
 
         .ft-band {
-          border-bottom: 1px solid rgba(196,158,90,0.1);
+          border-bottom: 1px solid rgba(255,255,255,0.1);
           padding: 4.5rem 2rem;
           display: flex;
           align-items: center;
@@ -38,7 +38,7 @@ export default function Footer() {
 
         .ft-band-label {
           font-size: 0.62rem; font-weight: 500; letter-spacing: 0.28em;
-          text-transform: uppercase; color: #c49e5a; display: block; margin-bottom: 0.6rem;
+          text-transform: uppercase; color: #ffffff; display: block; margin-bottom: 0.6rem;
         }
 
         .ft-band-title {
@@ -47,12 +47,12 @@ export default function Footer() {
           font-weight: 300; color: #f5f0e8; line-height: 1.1;
         }
 
-        .ft-band-title em { font-style: italic; color: #c49e5a; }
+        .ft-band-title em { font-style: italic; color: #ffffff; }
 
         .ft-band-btn {
           display: inline-flex; align-items: center; gap: 0.6rem;
           background: transparent; border: 1px solid rgba(196,158,90,0.5);
-          color: #c49e5a; font-family: 'Jost', sans-serif;
+          color: #ffffff; font-family: 'Jost', sans-serif;
           font-size: 0.7rem; font-weight: 500; letter-spacing: 0.22em;
           text-transform: uppercase; padding: 0.9rem 2rem;
           text-decoration: none; cursor: pointer;
@@ -62,7 +62,7 @@ export default function Footer() {
 
         .ft-band-btn::before {
           content: ''; position: absolute; inset: 0;
-          background: #c49e5a; transform: translateX(-101%);
+          background: #ffffff; transform: translateX(-101%);
           transition: transform 0.35s cubic-bezier(.25,.46,.45,.94);
         }
 
@@ -79,7 +79,7 @@ export default function Footer() {
           padding: 5rem 2rem 4rem;
           position: relative;
           z-index: 1;
-          border-bottom: 1px solid rgba(196,158,90,0.08);
+          border-bottom: 1px solid rgba(255,255,255,0.07);
         }
 
         .ft-logo {
@@ -91,11 +91,11 @@ export default function Footer() {
         .ft-logo-mark img { width: 100%; height: 100%; object-fit: contain; }
 
         .ft-logo-name { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: #f5f0e8; }
-        .ft-logo-name em { font-style: italic; color: #c49e5a; }
+        .ft-logo-name em { font-style: italic; color: #ffffff; }
 
         .ft-logo-sub {
           font-size: 0.52rem; font-weight: 500; letter-spacing: 0.25em;
-          text-transform: uppercase; color: rgba(196,158,90,0.45);
+          text-transform: uppercase; color: rgba(255,255,255,0.4);
           display: block; margin-top: 2px;
         }
 
@@ -110,17 +110,17 @@ export default function Footer() {
         .ft-soc {
           width: 20px; height: 20px;
           display: flex; align-items: center; justify-content: center;
-          color: rgba(196,158,90,0.6); transition: color 0.3s ease;
+          color: rgba(255,255,255,0.55); transition: color 0.3s ease;
         }
 
-        .ft-soc:hover { color: #c49e5a; }
+        .ft-soc:hover { color: #ffffff; }
 
         .ft-col-title {
           font-size: 0.6rem; font-weight: 600; letter-spacing: 0.25em;
-          text-transform: uppercase; color: #c49e5a;
+          text-transform: uppercase; color: #ffffff;
           display: block; margin-bottom: 1.2rem;
           padding-bottom: 0.7rem;
-          border-bottom: 1px solid rgba(196,158,90,0.1);
+          border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .ft-col a {
@@ -204,6 +204,18 @@ export default function Footer() {
                   <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
                 </svg>
               </a>
+              <a
+  href="https://www.facebook.com/YOUR_PAGE_HERE"
+  target="_blank"
+  rel="noreferrer"
+  className="ft-soc"
+  aria-label="Facebook"
+>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-3h2.5V9.5A3.5 3.5 0 0 1 14.1 6h2.4v3h-2c-.7 0-.9.3-.9.9V12H17l-.5 3h-2.3v7A10 10 0 0 0 22 12z"/>
+  </svg>
+</a>
+
             </div>
           </div>
 

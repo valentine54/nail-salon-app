@@ -1,0 +1,84 @@
+remove services in footer ,
+look at the number of book an appointment ctas
+pedicure, manicure, spa, tags in services
+spacing layout in hero section
+nails everyone
+amount total shown as she continues to schedule with the notice charms are extra charges.
+tech side time and wo booked
+
+the calendar look better,
+the icons when choosing manicure example
+NAIL TECH SYNC GGLE CAL
+the nany available , thecalendar is still synced
+number of customers, linking to whatsapp
+fro 7 am to 6pm
+or username/email
+ou insert directly into appointments without checking conflicts.
+
+👉 This WILL cause overlaps if multiple users book same slot.
+
+You go to your Admin Dashboard and enter their email address (e.g., technician@email.com).
+
+Your app calls the Supabase API method supabase.auth.admin.inviteUserByEmail() . This tells Supabase to send an email.
+
+They Receive an Invitation Email:
+
+The technician gets an email that says "You have been invited to join Finer Nails & Spa" .
+
+The email contains a special "Accept Invite" link .
+
+They Click the Link & Set their Password:
+
+When they click the link, they are taken directly to your website.
+
+Supabase will recognize them as a new user. You should build a page on your site (e.g., /set-password) where they can choose their own password for the first time 
+User Type	How they get access	Login Method	Best For
+Admin / Tech	You send an Invite Email from the Admin panel.	Magic Link (First click) → Set Password → Email/Password later .	Security & Control
+
+
+
+2KsFOhxNtA0xhUP0
+Project URL:
+https://vxoplunosdgexyagmvkk.supabase.co
+
+Publishable Key:
+sb_publishable_eRDcXuWD7gFWGcZFbikVsw_NNmzK-Ks
+
+Option 1 (simple — recommended for you)
+
+Just use the role column:
+
+UPDATE profiles
+SET role = 'Admin'
+WHERE email = 'your-email@example.com';
+
+Then in your app:
+
+if (profile.role === 'Admin') {
+  // show admin dashboard
+}
+⚡ Option 2 (advanced)
+
+Add a new column:
+
+ALTER TABLE profiles ADD COLUMN is_admin BOOLEAN DEFAULT false;
+🔥 My recommendation for you
+
+Keep it simple:
+
+👉 Use:
+
+role = 'Admin'
+role = 'Nail Tech'
+🚀 What you should do now
+DO NOT run the insert query yet
+Go create users in Authentication
+Confirm they appear in profiles table
+Then update roles
+
+Once you’ve created at least one user, tell me:
+
+“user created”
+
+Then we move to:
+👉 inserting appointments + RLS (security) — where things get real 🔥
