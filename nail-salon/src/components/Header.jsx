@@ -1,11 +1,15 @@
 // src/components/Header.jsx
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/finer-logo.png"
+import { useAuth } from './context/AuthContext';
+
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { signOut } = useAuth();
+const navigate = useNavigate();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -106,7 +110,7 @@ export default function Header() {
         .hdr-right {
           display: flex;
           align-items: center;
-          gap: 0.5rem;
+          gap: 0.8rem;
         }
 
         /* Location link */
@@ -245,62 +249,93 @@ export default function Header() {
           .hdr-right { display: none; }
           .hdr-burger { display: flex; }
         }
+    .hdr-team-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+   color: rgba(196,158,90,0.75);
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.hdr-team-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.hdr-team-icon:hover {
+  color: #c49e5a;
+  transform: translateY(-1px) scale(1.05);
+}
       `}</style>
 
       <header className={`hdr-root ${scrolled ? 'scrolled' : ''}`}>
 
-        {/* Logo */}
-       <Link to="/" className="hdr-logo">
-  <div className="hdr-logo-mark">
-{/*     <img src="/logo.png" alt="Finer Nails Spa Logo" className="logo-img" /> */}
-       <img src={logo} alt="Finer Nails Spa Logo" />
+  {/* Logo */}
+  <Link to="/" className="hdr-logo">
+    <div className="hdr-logo-mark">
+      <img src={logo} alt="Finer Nails Spa Logo" />
+    </div>
+
+    <div className="hdr-logo-text">
+      <span className="hdr-logo-name"><em>Finer</em> Nails Spa</span>
+      <span className="hdr-logo-sub">THE PLACE PLAZA,3rd floor - NHIF BUILDING, KISII</span>
+    </div>
+  </Link>
+
+  {/* Desktop right */}
+  <div className="hdr-right">
+    <Link to="/location" className="hdr-nav-link">Location</Link>
+    <div className="hdr-sep" />
+
+    <Link to="/booking" className="hdr-book-btn">
+      <span>Book Appointment</span>
+      <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
+      </svg>
+    </Link>
+
+    {/* Team icon */}
+    <Link to="/login" className="hdr-team-icon" title="Team Access">
+      <svg fill="none" stroke="currentColor" strokeWidth="1.6" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5z"/>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M20 21a8 8 0 10-16 0"/>
+      </svg>
+    </Link>
   </div>
 
-  <div className="hdr-logo-text">
-    <span className="hdr-logo-name"><em>Finer</em> Nails Spa</span>
-    <span className="hdr-logo-sub">The PLACE Complex, Kisii</span>
-  </div>
-</Link>
+  {/* Mobile burger */}
+  <button
+    className={`hdr-burger ${menuOpen ? 'open' : ''}`}
+    onClick={() => setMenuOpen(!menuOpen)}
+    aria-label="Toggle menu"
+  >
+    <span /><span /><span />
+  </button>
 
-        {/* Desktop right */}
-        <div className="hdr-right">
-          <Link to="/location" className="hdr-nav-link">Location</Link>
-          <div className="hdr-sep" />
-          <Link to="/booking" className="hdr-book-btn">
-            <span>Book Appointment</span>
-            <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
-            </svg>
-          </Link>
-        </div>
+</header>
 
-        {/* Mobile burger */}
-        <button
-          className={`hdr-burger ${menuOpen ? 'open' : ''}`}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          <span /><span /><span />
-        </button>
-      </header>
+{/* Mobile drawer (YOU WERE MISSING THIS) */}
+<div className={`hdr-drawer ${menuOpen ? 'open' : ''}`}>
+  <Link
+    to="/location"
+    className="hdr-nav-link"
+    onClick={() => setMenuOpen(false)}
+  >
+    Location
+  </Link>
 
-      {/* Mobile drawer */}
-      <div className={`hdr-drawer ${menuOpen ? 'open' : ''}`}>
-{/*         <a href="#location" className="hdr-nav-link" onClick={() => setMenuOpen(false)}>Location</a> */}
-<Link
-  to="/location"
-  className="hdr-nav-link"
-  onClick={() => setMenuOpen(false)}
->
-  Location
-</Link>
-        <Link to="/booking" className="hdr-book-btn" onClick={() => setMenuOpen(false)}>
-          <span>Book Appointment</span>
-          <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
-          </svg>
-        </Link>
-      </div>
+  <Link
+    to="/booking"
+    className="hdr-book-btn"
+    onClick={() => setMenuOpen(false)}
+  >
+    <span>Book Appointment</span>
+    <svg width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"/>
+    </svg>
+  </Link>
+</div>
     </>
   );
 }

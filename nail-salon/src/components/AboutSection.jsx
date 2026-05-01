@@ -310,9 +310,10 @@ export default function AboutSection() {
               <div className={`abt-quote ${inView ? 'visible' : ''}`}>
                 <span className="abt-quote-mark">"</span>
                 <p className="abt-quote-text">
-                  We don't just do nails. We create a moment of stillness in a busy day - and send you out feeling like yourself, only more so.
+{/*                   We don't just do nails. */}
+                   We create a moment of stillness in a busy day and send you out feeling like yourself, only more so.
                 </p>
-                <span className="abt-quote-attr">- Jane Doe, Founder</span>
+                <span className="abt-quote-attr">- Jane Doe, TECH LEAD</span>
               </div>
             </div>
 

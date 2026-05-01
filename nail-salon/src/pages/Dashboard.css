@@ -1,0 +1,32 @@
+.dash-container { background: #0e0c09; min-height: 100vh; padding: 2rem; color: #f5f0e8; }
+
+.stats-strip {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1rem; margin-bottom: 3rem;
+}
+
+.stat-item {
+  background: #1a1814; padding: 1.5rem;
+  border-bottom: 2px solid #c49e5a; text-align: center;
+}
+
+.stat-item label { font-size: 0.7rem; letter-spacing: 2px; color: rgba(196,158,90,0.6); }
+
+.timeline-card {
+  display: flex; align-items: center; background: #15130f;
+  margin-bottom: 1rem; border-radius: 8px; overflow: hidden;
+  border-left: 4px solid #c49e5a; transition: 0.3s;
+}
+
+.timeline-card:hover { transform: translateX(10px); background: #1a1814; }
+
+.time-indicator {
+  padding: 2rem 1rem; font-weight: 600; min-width: 80px; text-align: center;
+}
+
+.action-row { display: flex; gap: 10px; margin-top: 10px; }
+
+.action-btn {
+  font-size: 0.6rem; text-transform: uppercase; padding: 5px 12px;
+  border: 1px solid rgba(196,158,90,0.3); color: #c49e5a; text-decoration: none;
+}

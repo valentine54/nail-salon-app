@@ -7,77 +7,248 @@ import pedicure from "../assets/images/pedi-5.jpg";
 import bridal from "../assets/images/gold-foil-nail-art.jpg";
 
 const services = [
+  // ── PEDICURE ──────────────────────────────────────────────
   {
-    name: "Acrylic toes",
-    tag: "Most Popular",
-    description: "We clean the toe nails and restructure them using acrylic.Some Designs & Decors  are changed separately.For best results we recommend a pedicure prior",
-    price: "KES 2,500.00",
-    image: gel,
-    detail: "2–3 week wear · No drying time · Natural nail safe",
-  },
-  {
-    name: "Acrylic Extensions",
+    name: "Gel Polish",
     tag: null,
-    description: "Sculpted extensions for length and structure. Built with premium liquid-and-powder, then shaped to your preference - almond, coffin, stiletto, or square.",
-    price: "KES 4,000.00",
-    image: acrylic,
-    detail: "Custom shape · Full set or infill · Nail art compatible",
-  },
-  {
-    name: "Gel X extensions",
-    tag: null,
-    description: "An improved version of stickons,instead of nail glue we use special gel to adhere the false tips on the nails.Easy to soak off and leaves no residue",
-    price: "KES 2,500.00",
-    image: art,
-    detail: "Add-on or standalone · Freehand or stencil · Custom briefs welcome",
-  },
-  {
-    name: "Pedicure",
-    tag: null,
-    description: "Moroccan whitening wrap available. Lemon infused Jelly soak for KES 1000 extra.",
-    price: "KES 1,200",
+    category: "pedicure",
+    description: "Long-lasting gel colour applied to your natural toenails for a glossy, chip-free finish that lasts 2–3 weeks.",
+    price: "KES 800",
     image: pedicure,
-    detail: "60–90 min · Callus removal · Moroccan wrap optional",
+    detail: "Gel colour · 2–3 week wear · Quick finish",
   },
   {
-    name: "Acrylics",
+    name: "Pedicure Plain",
     tag: null,
-    description: " ",
-    price: "KES 3,000.00",
+    category: "pedicure",
+    description: "A classic pedicure with soak, cuticle care, nail shaping, callus removal and a moisturising massage. Clean and refreshed.",
+    price: "KES 1,300",
+    image: pedicure,
+    detail: "Soak · Shape · Callus removal · Massage",
+  },
+  {
+    name: "Pedicure Gel",
+    tag: null,
+    category: "pedicure",
+    description: "Our classic pedicure treatment finished with a long-lasting gel polish colour of your choice.",
+    price: "KES 1,800",
+    image: pedicure,
+    detail: "Full pedicure · Gel finish · 2–3 week wear",
+  },
+  {
+    name: "Spa Pedicure & Gel",
+    tag: null,
+    category: "pedicure",
+    description: "An elevated spa pedicure with extended massage, exfoliation, hot towel treatment and a gel polish finish.",
+    price: "KES 2,500",
+    image: pedicure,
+    detail: "Spa treatment · Extended massage · Gel finish",
+  },
+  {
+    name: "Lemon Infused Jelly Pedi & Gel",
+    tag: "Luxe",
+    category: "pedicure",
+    description: "A refreshing lemon-infused jelly soak pedicure that softens and brightens skin, finished with a gel polish for a radiant look.",
+    price: "KES 3,000",
+    image: pedicure,
+    detail: "Jelly soak · Brightening · Gel finish",
+  },
+  {
+    name: "Acrylic Overlays (Toes)",
+    tag: "Most Popular",
+    category: "pedicure",
+    description: "We clean the toenails and restructure them using acrylic overlays. Some designs & décor are charged separately. A pedicure prior is recommended.",
+    price: "KES 2,500",
+    image: gel,
+    detail: "Acrylic overlay · 2–3 week wear · Natural nail safe",
+  },
+  {
+    name: "Acrylic Extensions (Toes)",
+    tag: null,
+    category: "pedicure",
+    description: "Sculpted acrylic extensions on the toes for added length and a perfectly shaped finish. Great for special occasions.",
+    price: "KES 3,000",
+    image: gel,
+    detail: "Sculpted extensions · Custom shape · Durable",
+  },
+  {
+    name: "Gel X Toe Extensions",
+    tag: null,
+    category: "pedicure",
+    description: "An improved version of stick-ons — instead of nail glue we use special gel to adhere false tips to the toes. Easy to soak off and leaves no residue.",
+    price: "KES 2,500",
+    image: art,
+    detail: "Gel adhesion · Soak-off safe · No residue",
+  },
+
+  // ── MANICURE ──────────────────────────────────────────────
+  {
+    name: "Reinforced Gel Polish",
+    tag: null,
+    category: "manicure",
+    description: "A strengthening gel polish application that adds a protective layer over your natural nails while delivering a long-lasting colour finish.",
+    price: "KES 1,500",
+    image: art,
+    detail: "Strengthening · Gel colour · 2–3 week wear",
+  },
+  {
+    name: "Classic Manicure",
+    tag: null,
+    category: "manicure",
+    description: "A timeless manicure with soak, cuticle care, nail shaping and a regular polish finish. Clean, neat and polished.",
+    price: "KES 700",
+    image: art,
+    detail: "Soak · Shape · Cuticle care · Regular polish",
+  },
+  {
+    name: "Spa Manicure",
+    tag: null,
+    category: "manicure",
+    description: "An elevated manicure experience with exfoliation, extended hand massage, hot towel wrap and a polish finish of your choice.",
+    price: "KES 1,500",
+    image: art,
+    detail: "Exfoliation · Hot towel · Extended massage",
+  },
+  {
+    name: "Overlays",
+    tag: null,
+    category: "manicure",
+    description: "Strengthen and protect your natural nails with BIAB, Gum gel, or Acrylic overlays. No extensions — just reinforced, beautiful nails.",
+    price: "KES 2,300",
+    image: acrylic,
+    detail: "BIAB · Gum gel · Acrylic · Natural nail",
+  },
+  {
+    name: "Gel X Extensions",
+    tag: null,
+    category: "manicure",
+    description: "An improved version of stick-ons — instead of nail glue we use special gel to adhere the false tips. Easy to soak off and leaves no residue.",
+    price: "KES 2,500",
+    image: art,
+    detail: "Soak-off safe · No residue · Freehand or stencil",
+  },
+  {
+    name: "Tips with Gumgel / Builder",
+    tag: null,
+    category: "manicure",
+    description: "Soft gel tips adhered and built up with gumgel or builder gel for a lightweight, flexible extension with a flawless finish.",
+    price: "KES 2,800",
+    image: acrylic,
+    detail: "Lightweight · Flexible · Natural finish",
+  },
+  {
+    name: "Short Acrylic Extensions",
+    tag: null,
+    category: "manicure",
+    description: "Sculpted short acrylic extensions — perfect for those who want the look and durability of acrylics with a practical, everyday length.",
+    price: "KES 3,000",
+    image: acrylic,
+    detail: "Short length · Custom shape · Durable",
+  },
+  {
+    name: "Medium / Long Acrylics",
+    tag: null,
+    category: "manicure",
+    description: "Sculpted acrylic extensions at medium or long length. Shaped to your preference — almond, coffin, stiletto, or square.",
+    price: "KES 4,000",
+    image: acrylic,
+    detail: "Medium or long · Custom shape · All occasions",
+  },
+  {
+    name: "Xtra Long Acrylics",
+    tag: null,
+    category: "manicure",
+    description: "Extra-long sculpted acrylics — a bold, dramatic statement set built for maximum length and impact. Ombré available.",
+    price: "KES 4,500",
     image: bridal,
-    detail: "Trial included · Group rates · On-location available",
+    detail: "Xtra long · Ombré optional · Statement set",
+  },
+
+  // ── SPA ───────────────────────────────────────────────────
+  {
+    name: "Hard Reset Facial",
+    tag: "Signature",
+    category: "spa",
+    description: "Deep cleanse, vacuum extraction, 2-step exfoliation, soothing hydrating mask & LED light therapy. For a refreshed, clearer complexion.",
+    price: "KES 5,000.00",
+    image: bridal,
+    detail: "LED therapy · Vacuum extraction · 75–90 min",
   },
   {
-    name: "Long Acrylics Ombre",
+    name: "Balance & Glow",
     tag: null,
-    description: " ",
+    category: "spa",
+    description: "Deep cleanse, 2-step exfoliation, S&H mask and LED light therapy. Perfect for an even, radiant complexion.",
     price: "KES 4,500.00",
     image: bridal,
-    detail: "Trial included · Group rates · On-location available",
+    detail: "LED therapy · S&H mask · Glow finish",
+  },
+  {
+    name: "Acne Combat",
+    tag: null,
+    category: "spa",
+    description: "Deep cleanse & microneedling. Targets acne, blackheads, large pores, unevenness & pigmentation for visibly clearer skin.",
+    price: "KES 10,000.00",
+    image: bridal,
+    detail: "Microneedling · Targets acne & pigmentation",
+  },
+  {
+    name: "Instant Glow (Gents)",
+    tag: null,
+    category: "spa",
+    description: "Deep cleanse, derma abrasion & soothing hydrating mask. Clears dead skin & oil build-up revealing a smoother, clean face.",
+    price: "KES 4,000.00",
+    image: bridal,
+    detail: "Derma abrasion · Oil control · Men's treatment",
+  },
+  {
+    name: "The Scalp",
+    tag: null,
+    category: "spa",
+    description: "Deep cleanse, dermaplaning / derma abrasion & S&H mask. Removes impurities and revitalizes the scalp.",
+    price: "KES 4,500.00",
+    image: bridal,
+    detail: "Dermaplaning · Scalp detox · Revitalizing",
+  },
+  {
+    name: "Body Scrub",
+    tag: null,
+    category: "spa",
+    description: "Full body exfoliation to unclog pores, improve skin texture and reveal a radiant, smooth glow from head to toe.",
+    price: "KES 6,000.00",
+    image: bridal,
+    detail: "Full body · Pore refinement · Radiant finish",
   },
 ];
 
-function useInView(threshold = 0.12) {
+const TABS = [
+  { key: "manicure", label: "Manicure" },
+  { key: "pedicure", label: "Pedicure" },
+  { key: "spa",      label: "Spa" },
+];
+
+function useInView(threshold = 0.08) {
   const ref = useRef(null);
   const [inView, setInView] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setInView(true); }, { threshold });
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setInView(true); },
+      { threshold }
+    );
     obs.observe(el);
     return () => obs.disconnect();
   }, [threshold]);
   return [ref, inView];
 }
 
-function ServiceCard({ service, index, inView }) {
+function ServiceCard({ service, index }) {
   return (
     <div
       className="svc-card"
       style={{
-        opacity: inView ? 1 : 0,
-        transform: inView ? 'translateY(0)' : 'translateY(24px)',
-        transition: `opacity 0.6s ease ${0.1 + index * 0.1}s, transform 0.6s ease ${0.1 + index * 0.1}s`,
+        animationDelay: `${0.05 + index * 0.07}s`,
       }}
     >
       {/* Image */}
@@ -96,7 +267,7 @@ function ServiceCard({ service, index, inView }) {
         </div>
         <p className="svc-desc">{service.description}</p>
         <p className="svc-detail">{service.detail}</p>
-        <a href="#pricing" className="svc-cta">
+        <a href="#booking" className="svc-cta">
           <span>Book This Service</span>
         </a>
       </div>
@@ -106,6 +277,19 @@ function ServiceCard({ service, index, inView }) {
 
 export default function ServicesSection() {
   const [sectionRef, inView] = useInView();
+  const [activeTab, setActiveTab] = useState("manicure");
+  const [animating, setAnimating] = useState(false);
+
+  const filtered = services.filter((s) => s.category === activeTab);
+
+  function handleTab(key) {
+    if (key === activeTab) return;
+    setAnimating(true);
+    setTimeout(() => {
+      setActiveTab(key);
+      setAnimating(false);
+    }, 220);
+  }
 
   return (
     <>
@@ -120,7 +304,6 @@ export default function ServicesSection() {
           font-family: 'Jost', sans-serif;
         }
 
-        /* Ambient orb */
         .svc-orb {
           position: absolute;
           border-radius: 50%;
@@ -144,13 +327,13 @@ export default function ServicesSection() {
           z-index: 1;
         }
 
-        /* Header */
+        /* ── Header ── */
         .svc-header {
           display: flex;
           flex-direction: column;
           align-items: center;
           text-align: center;
-          margin-bottom: 4.5rem;
+          margin-bottom: 3.5rem;
         }
         .svc-eyebrow {
           font-size: 0.65rem; font-weight: 500; letter-spacing: 0.3em;
@@ -171,34 +354,95 @@ export default function ServicesSection() {
           color: rgba(245,240,232,0.35); letter-spacing: 0.05em; max-width: 380px;
         }
 
-        /* Grid — first 3 in a row, last 2 centered */
+        /* ── Notice ── */
+        @keyframes noticeAppear {
+          from { opacity: 0; transform: scale(0.92) translateY(12px); }
+          to   { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 0.6; transform: scale(1); }
+          50%       { opacity: 1;   transform: scale(1.15); }
+        }
+        .notice-box { animation-fill-mode: forwards; }
+
+        /* ── Tabs ── */
+        .svc-tabs {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          margin-bottom: 3rem;
+        }
+        .svc-tab {
+          position: relative;
+          font-family: 'Jost', sans-serif;
+          font-size: 0.68rem;
+          font-weight: 500;
+          letter-spacing: 0.22em;
+          text-transform: uppercase;
+          padding: 0.65rem 1.8rem;
+          border: 1px solid rgba(196,158,90,0.2);
+          background: transparent;
+          color: rgba(245,240,232,0.35);
+          cursor: pointer;
+          transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+          overflow: hidden;
+        }
+        .svc-tab::before {
+          content: '';
+          position: absolute; inset: 0;
+          background: rgba(196,158,90,0.06);
+          transform: translateX(-101%);
+          transition: transform 0.3s ease;
+        }
+        .svc-tab:hover { color: rgba(245,240,232,0.6); border-color: rgba(196,158,90,0.35); }
+        .svc-tab:hover::before { transform: translateX(0); }
+
+        .svc-tab.active {
+          background: #c49e5a;
+          border-color: #c49e5a;
+          color: #0e0c09;
+        }
+        .svc-tab.active::before { display: none; }
+
+        .svc-tab-divider {
+          width: 1px;
+          height: 14px;
+          background: rgba(196,158,90,0.2);
+        }
+
+        /* ── Grid ── */
         .svc-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 1px;
-          background: rgba(196,158,90,0.1);
-          margin-bottom: 1px;
+          gap: 0; /* Changed from 1px to 0 */
+          background: transparent; /* Removed the background color here */
+          transition: opacity 0.22s ease;
+          /* Optional: Add a top and left border to the grid if you want a full frame */
+          border-top: 1px solid rgba(196,158,90,0.1);
+          border-left: 1px solid rgba(196,158,90,0.1);
         }
-        .svc-grid-2 {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          max-width: calc(66.66% + 1px);
-          margin: 0 auto;
-          gap: 1px;
-          background: rgba(196,158,90,0.1);
-        }
+        .svc-grid.fading { opacity: 0; }
 
-        /* Card */
+        /* ── Card ── */
+        @keyframes cardIn {
+          from { opacity: 0; transform: translateY(20px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
         .svc-card {
           background: #111009;
           display: flex;
           flex-direction: column;
           overflow: hidden;
           transition: background 0.3s ease;
+          opacity: 0;
+          animation: cardIn 0.5s ease forwards;
+          /* Add borders here to create the grid lines only where cards exist */
+          border-right: 1px solid rgba(196,158,90,0.1);
+          border-bottom: 1px solid rgba(196,158,90,0.1);
         }
         .svc-card:hover { background: #161210; }
 
-        /* Image */
         .svc-img-wrap {
           position: relative;
           aspect-ratio: 4/3;
@@ -232,7 +476,6 @@ export default function ServicesSection() {
           color: rgba(245,240,232,0.9);
         }
 
-        /* Content */
         .svc-content {
           padding: 1.6rem 1.8rem 2rem;
           display: flex;
@@ -254,6 +497,7 @@ export default function ServicesSection() {
         .svc-arrow {
           font-size: 0.85rem; color: rgba(196,158,90,0.3);
           transition: color 0.25s ease, transform 0.3s ease;
+          flex-shrink: 0;
         }
         .svc-card:hover .svc-arrow {
           color: #c49e5a;
@@ -299,40 +543,16 @@ export default function ServicesSection() {
         .svc-cta:hover { border-color: rgba(196,158,90,0.6); }
         .svc-cta:hover::before { transform: translateX(0); }
 
+        /* ── Responsive ── */
         @media (max-width: 900px) {
           .svc-grid { grid-template-columns: 1fr 1fr; }
-          .svc-grid-2 { grid-template-columns: 1fr; max-width: 100%; }
         }
         @media (max-width: 600px) {
           .svc-grid { grid-template-columns: 1fr; }
-          .svc-grid-2 { grid-template-columns: 1fr; max-width: 100%; }
+          .svc-tabs { gap: 0.3rem; }
+          .svc-tab { padding: 0.55rem 1.1rem; font-size: 0.6rem; }
+          .svc-tab-divider { display: none; }
         }
-        @keyframes noticeAppear {
-  0% {
-    opacity: 0;
-    transform: scale(0.92) translateY(12px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.15);
-  }
-}
-
-/* Optional: make sure the animation only runs once on load */
-.notice-box {
-  animation-fill-mode: forwards;
-}
       `}</style>
 
       <section id="services" className="svc-root" ref={sectionRef}>
@@ -341,83 +561,108 @@ export default function ServicesSection() {
         <div className="svc-orb svc-orb-2" />
 
         <div className="svc-inner">
+
+          {/* ── Header ── */}
           <div className="svc-header">
-  <span className="svc-eyebrow">What We Offer</span>
+            <span className="svc-eyebrow">What We Offer</span>
+            <div className="svc-rule">
+              <span className="svc-rule-line" />
+              <span className="svc-rule-gem" />
+              <span className="svc-rule-line r" />
+            </div>
+            <h2 className="svc-title">Our <em>Services</em></h2>
+            <p className="svc-subtitle">
+              Each treatment is performed with precision and care, using only premium, cruelty-free products.
+            </p>
 
-  <div className="svc-rule">
-    <span className="svc-rule-line" />
-    <span className="svc-rule-gem" />
-    <span className="svc-rule-line r" />
+            {/* Notice */}
+            <div
+  className="notice-box"
+  style={{
+    marginTop: '1.2rem',
+    padding: '1rem 1.3rem',
+    background: 'rgba(196,158,90,0.06)',
+    border: '1px solid rgba(196,158,90,0.2)',
+    borderRadius: '10px',
+    maxWidth: '480px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    textAlign: 'center',
+    fontSize: '0.82rem',
+    color: '#f5e8d2',
+    lineHeight: 1.5,
+    opacity: 0,
+    transform: 'scale(0.95)',
+    animation: 'noticeAppear 1.2s ease-out forwards 0.4s',
+    transition: 'all 0.35s ease',
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.transform = 'scale(1.02)';
+    e.currentTarget.style.boxShadow = '0 6px 20px rgba(196,158,90,0.12)';
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.transform = 'scale(1)';
+    e.currentTarget.style.boxShadow = 'none';
+  }}
+>
+  <span style={{ display: 'inline-block', marginBottom: '0.5rem', fontSize: '1.1rem', animation: 'pulse 2.2s infinite ease-in-out' }}>
+    ✦
+  </span>
+  <div style={{ fontStyle: 'italic', marginBottom: '0.6rem', lineHeight: 1.6 }}>
+    <strong style={{ color: '#c49e5a', fontWeight: 500 }}>Extra charges</strong> for{' '}
+    <span style={{ color: '#f5f0e8' }}>Chrome, Pearl, Ombre, Stones &amp; Charms</span>
   </div>
-
-  <h2 className="svc-title">
-    Our <em>Services</em>
-  </h2>
-
-  <p className="svc-subtitle">
-    Each treatment is performed with precision and care, using only premium, cruelty-free products.
-  </p>
-
-  {/* Enhanced, noticeable notice with motion */}
-  <div
-    className="notice-box"
-    style={{
-      marginTop: '1.2rem',
-      padding: '0.9rem 1.3rem',
-      background: 'rgba(196,158,90,0.07)',
-      border: '1px solid rgba(196,158,90,0.25)',
-      borderRadius: '10px',
-      maxWidth: '420px',
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      textAlign: 'center',
-      fontSize: '0.82rem',
-      fontStyle: 'italic',
-      color: '#f5e8d2',
-      lineHeight: 1.5,
-      opacity: 0,
-      transform: 'scale(0.95)',
-      animation: 'noticeAppear 1.2s ease-out forwards 0.4s',
-      transition: 'all 0.35s ease'
-    }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.transform = 'scale(1.02)';
-      e.currentTarget.style.boxShadow = '0 6px 20px rgba(196,158,90,0.12)';
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.transform = 'scale(1)';
-      e.currentTarget.style.boxShadow = 'none';
-    }}
-  >
+  <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: '0.3rem',
+    fontSize: '0.7rem',
+    color: 'rgba(245,240,232,0.5)',
+    fontStyle: 'italic'
+  }}>
+    <span style={{ fontSize: '0.6rem' }}>(PER FINGER)</span>
     <span style={{
-      display: 'inline-block',
-      marginRight: '0.5rem',
-      fontSize: '1.1rem',
-      animation: 'pulse 2.2s infinite ease-in-out'
+      fontFamily: "'Cormorant Garamond', serif",
+      fontSize: '1.4rem',
+      fontWeight: 300,
+      color: '#c49e5a',
+      marginLeft: '0.3rem'
     }}>
-      ✦
+      50/=
     </span>
-    <strong style={{ color: '#c49e5a', fontWeight: 500 }}>
-      Note:
-    </strong>{' '}
-    Extra décor is charged separately.
   </div>
 </div>
-
-
-          {/* First 3 */}
-          <div className="svc-grid">
-            {services.slice(0, 3).map((s, i) => (
-              <ServiceCard key={s.name} service={s} index={i} inView={inView} />
+            </div>
+          {/* ── Category Tabs ── */}   {/* ← Missing closing div before this */}
+          {/* ── Category Tabs ── */}
+          <div className="svc-tabs">
+            {TABS.map((tab, i) => (
+              <>
+                <button
+                  key={tab.key}
+                  className={`svc-tab${activeTab === tab.key ? ' active' : ''}`}
+                  onClick={() => handleTab(tab.key)}
+                >
+                  {tab.label}
+                </button>
+                {i < TABS.length - 1 && <span key={`div-${i}`} className="svc-tab-divider" />}
+              </>
             ))}
           </div>
 
-          {/* Last 2, centered */}
-          <div className="svc-grid-2">
-            {services.slice(3).map((s, i) => (
-              <ServiceCard key={s.name} service={s} index={i + 3} inView={inView} />
+          {/* ── Services Grid ── */}
+          <div className={`svc-grid${animating ? ' fading' : ''}`}>
+            {filtered.map((s, i) => (
+              <ServiceCard
+                key={`${activeTab}-${s.name}`}
+                service={s}
+                index={i}
+                inView={inView}
+              />
             ))}
           </div>
+
         </div>
       </section>
     </>
