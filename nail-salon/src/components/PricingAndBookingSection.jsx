@@ -256,7 +256,7 @@ export default function PricingAndBookingSection() {
   try {
     const formData = new FormData();
 
-    formData.append("access_key", "381d8c6b-77f6-4c5d-9f50-3e6ebe26aad0");
+    formData.append("access_key", "60e22f84-838e-4246-bbdf-28b2e9a5bf7d");
 
     // 👇 This controls the email subject (important!)
     formData.append("subject", "New Booking ✨");
