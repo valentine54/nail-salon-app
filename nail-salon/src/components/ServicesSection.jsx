@@ -292,6 +292,7 @@ export default function ServicesSection() {
   return (
     <>
       <style>{`
+
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
 
         .svc-root {
@@ -515,6 +516,26 @@ export default function ServicesSection() {
           margin-bottom: 1.2rem;
           line-height: 1.8;
         }
+    .marquee-track {
+  display: inline-block;
+  white-space: nowrap;
+  min-width: max-content;
+  padding-left: 100%;
+  font-size: 0.8rem;
+  color: rgba(245,240,232,0.72);
+  letter-spacing: 0.03em;
+  animation: marquee 14s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
 
             /* ── Responsive ── */
         @media (max-width: 900px) {
@@ -548,63 +569,43 @@ export default function ServicesSection() {
               Each treatment is performed with precision and care, using only premium, cruelty-free products.
             </p>
 
-            {/* Notice */}
-            <div
+           {/* Notice */}
+<div
   className="notice-box"
   style={{
-    marginTop: '1.2rem',
-    padding: '1rem 1.3rem',
-    background: 'rgba(255,255,255,0.05)',
-    border: '1px solid rgba(255,255,255,0.18)',
-    borderRadius: '10px',
-    maxWidth: '480px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    textAlign: 'center',
-    fontSize: '0.82rem',
-    color: '#f5e8d2',
-    lineHeight: 1.5,
+    marginTop: '1.4rem',
+    width: '100%',
+    overflow: 'hidden',
+    borderTop: '1px solid rgba(255,255,255,0.12)',
+    borderBottom: '1px solid rgba(255,255,255,0.06)',
+    padding: '0.9rem 0',
     opacity: 0,
-    transform: 'scale(0.95)',
-    animation: 'noticeAppear 1.2s ease-out forwards 0.4s',
-    transition: 'all 0.35s ease',
-  }}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.transform = 'scale(1.02)';
-    e.currentTarget.style.boxShadow = '0 6px 20px rgba(255,255,255,0.1)';
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.transform = 'scale(1)';
-    e.currentTarget.style.boxShadow = 'none';
+    transform: 'translateY(10px)',
+    animation: 'noticeAppear 1s ease forwards 0.4s',
+    position: 'relative',
   }}
 >
-  <span style={{ display: 'inline-block', marginBottom: '0.5rem', fontSize: '1.1rem', animation: 'pulse 2.2s infinite ease-in-out' }}>
-    ✦
-  </span>
-  <div style={{ fontStyle: 'italic', marginBottom: '0.6rem', lineHeight: 1.6 }}>
-    <strong style={{ color: '#ffffff', fontWeight: 500 }}>Extra charges</strong> for{' '}
-    <span style={{ color: '#f5f0e8' }}>Chrome, Pearl, Ombre, Stones &amp; Charms</span>
-  </div>
-  <div style={{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '0.3rem',
-    fontSize: '0.7rem',
-    color: 'rgba(245,240,232,0.5)',
-    fontStyle: 'italic'
-  }}>
-    <span style={{ fontSize: '0.6rem' }}>(PER FINGER)</span>
-    <span style={{
-      fontFamily: "'Cormorant Garamond', serif",
-      fontSize: '1.4rem',
-      fontWeight: 300,
-      color: '#ffffff',
-      marginLeft: '0.3rem'
-    }}>
-      50/=
+  <div
+    style={{
+      display: 'inline-block',
+      whiteSpace: 'nowrap',
+      paddingLeft: '100%',
+      animation: 'marquee 16s linear infinite',
+      fontSize: '0.8rem',
+      color: 'rgba(245,240,232,0.7)',
+      letterSpacing: '0.03em',
+    }}
+  >
+    <span style={{ color: '#ffffff', fontWeight: 500 }}>
+      Extra charges apply
+    </span>{' '}
+    for Chrome, Pearl, Ombre, Stones & Charms
+    <span style={{ opacity: 0.5, margin: '0 0.6rem' }}>•</span>
+    <span style={{ color: '#ffffff' }}>
+      KES 50 per finger
     </span>
   </div>
+
 </div>
             </div>
           {/* ── Category Tabs ── */}   {/* ← Missing closing div before this */}

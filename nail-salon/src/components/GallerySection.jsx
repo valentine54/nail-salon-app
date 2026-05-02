@@ -110,7 +110,7 @@ export default function GallerySection() {
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
 
         .gal-root {
-          background: #111009;
+          background: #080604;
           padding: 7rem 0 6rem;
           position: relative;
           overflow: hidden;
@@ -126,11 +126,11 @@ export default function GallerySection() {
         /* Fade edges */
         .gal-fade-left {
           position: absolute; top: 0; left: 0; bottom: 0; width: 120px; z-index: 5; pointer-events: none;
-          background: linear-gradient(to right, #111009, transparent);
+          background: linear-gradient(to right, #080604, transparent);
         }
         .gal-fade-right {
           position: absolute; top: 0; right: 0; bottom: 0; width: 120px; z-index: 5; pointer-events: none;
-          background: linear-gradient(to left, #111009, transparent);
+          background: linear-gradient(to left, #080604, transparent);
         }
 
         /* Header */
@@ -233,28 +233,55 @@ export default function GallerySection() {
         }
         .gal-cta-wrap.visible { opacity: 1; transform: translateY(0); }
         .gal-cta {
-          display: inline-flex;
-          align-items: center;
-          gap: 0.7rem;
-          background: transparent;
-          border: 1px solid rgba(255,255,255,0.32);
-          color: rgba(196,158,90,0.8);
-          font-family: 'Jost', sans-serif;
-          font-size: 0.7rem; font-weight: 500;
-          letter-spacing: 0.22em; text-transform: uppercase;
-          padding: 0.9rem 2.2rem; text-decoration: none;
-          position: relative; overflow: hidden;
-          transition: border-color 0.3s ease;
-        }
-        .gal-cta::before {
-          content: ''; position: absolute; inset: 0;
-          background: rgba(255,255,255,0.07);
-          transform: translateX(-101%);
-          transition: transform 0.35s cubic-bezier(.25,.46,.45,.94);
-        }
-        .gal-cta span { position: relative; z-index: 1; }
-        .gal-cta:hover { border-color: rgba(196,158,90,0.65); }
-        .gal-cta:hover::before { transform: translateX(0); }
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: rgba(196,158,90,0.8); /* KEEP GOLD TEXT */
+  font-family: 'Jost', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.2rem;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover fill (NOT gold anymore) */
+.gal-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #ffffff; /* 👈 clean white fill */
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(.25,.46,.45,.94);
+}
+
+.gal-cta span,
+.gal-cta svg {
+  position: relative;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+/* Hover state */
+.gal-cta:hover::before {
+  transform: translateX(0);
+}
+
+.gal-cta:hover {
+  border-color: #ffffff;
+}
+
+/* Text changes on hover */
+.gal-cta:hover span,
+.gal-cta:hover svg {
+  color: #000000; /* 👈 turns black on white fill */
+}
       `}</style>
 
       <section id="gallery" className="gal-root" ref={sectionRef}>
