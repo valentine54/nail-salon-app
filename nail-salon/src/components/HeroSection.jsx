@@ -1,5 +1,3 @@
-// src/components/HeroSection.jsx
-
 import { Link } from "react-router-dom";
 
 export default function HeroSection() {

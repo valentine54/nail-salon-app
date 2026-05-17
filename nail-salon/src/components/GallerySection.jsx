@@ -5,10 +5,10 @@ import { Autoplay } from 'swiper/modules';
 import { Link } from "react-router-dom";
 import 'swiper/css';
 
-import nail1 from "../assets/images/elegant-french-mani.jpg";
-import nail2 from "../assets/images/gold-foil-nail-art.jpg";
-import nail3 from "../assets/images/blush-pink-gel-nails.jpg";
-import pedi1 from "../assets/images/elegant-french-mani.jpg";
+import nail1 from "/2.jpeg";
+import nail2 from "/3.jpeg";
+import nail3 from "/4.jpeg";
+import pedi1 from "/5.jpeg";
 import pedi2 from "../assets/images/gold-foil-nail-art.jpg";
 import pedi3 from "../assets/images/blush-pink-gel-nails.jpg";
 import pedi4 from "../assets/images/pedi-1.jpg";
