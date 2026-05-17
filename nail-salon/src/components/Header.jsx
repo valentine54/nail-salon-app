@@ -82,17 +82,14 @@ export default function Header() {
           gap: 3px;
         }
         .hdr-logo-name {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 1.2rem;
-          font-weight: 400;
-          color: #ffffff;
-          letter-spacing: 0.04em;
-          white-space: nowrap;
-        }
-        .hdr-logo-name em {
-          font-style: italic;
-          color: #ffffff;
-        }
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;        /* was 1.2rem */
+  font-weight: 600;         /* was 400 — heavier for impact */
+  color: #ffffff;
+  letter-spacing: 0.08em;   /* slightly wider spacing */
+  white-space: nowrap;
+}
+
         .hdr-logo-sub {
           font-size: 0.5rem;
           font-weight: 400;
@@ -331,6 +328,7 @@ export default function Header() {
 
   .hdr-logo-name {
     font-size: 0.92rem;
+    font-size: 1.15rem;
     line-height: 1;
   }
 
@@ -359,7 +357,7 @@ export default function Header() {
             <img src={logo} alt="Finer Nails Spa Logo" />
           </div>
           <div className="hdr-logo-text">
-            <span className="hdr-logo-name"><em>Finer</em> Nails Spa</span>
+            <span className="hdr-logo-name">Finer Nails Spa</span>
             <span className="hdr-logo-sub">The Place Plaza · 3rd Floor · Kisii</span>
           </div>
         </Link>
