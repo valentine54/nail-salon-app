@@ -235,7 +235,7 @@ export default function PricingAndBookingSection() {
   const sendBookingEmail = async () => {
     try {
       const formData = new FormData();
-      formData.append("access_key", "60e22f84-838e-4246-bbdf-28b2e9a5bf7d");
+      formData.append("access_key", "ee9dd06b-7b8a-4d90-bd43-9edee5122acc");
       formData.append("subject", "New Booking ✨");
       formData.append("Name", clientName);
       formData.append("Phone", clientPhone);
