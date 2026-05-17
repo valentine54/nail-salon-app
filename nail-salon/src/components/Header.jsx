@@ -408,7 +408,7 @@ export default function Header() {
         {navLinks.map(({ label, href }) => (
           <Link
             key={label}
-            href={href}
+            to={href}
             className="hdr-drawer-link"
             onClick={() => setMenuOpen(false)}
           >
