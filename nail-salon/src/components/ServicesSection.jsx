@@ -296,7 +296,7 @@ export default function ServicesSection() {
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
 
         .svc-root {
-          background: #0e0c09;
+          background: #000000;
           padding: 7rem 0 6rem;
           position: relative;
           overflow: hidden;
@@ -335,23 +335,43 @@ export default function ServicesSection() {
           margin-bottom: 3.5rem;
         }
         .svc-eyebrow {
-          font-size: 0.65rem; font-weight: 500; letter-spacing: 0.3em;
-          text-transform: uppercase; color: #ffffff; margin-bottom: 1.1rem;
-        }
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin-bottom: 1.1rem;
+}
         .svc-rule { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.1rem; }
         .svc-rule-line { width: 44px; height: 1px; background: linear-gradient(to right, transparent, rgba(196,158,90,0.5)); }
         .svc-rule-line.r { background: linear-gradient(to left, transparent, rgba(196,158,90,0.5)); }
-        .svc-rule-gem { width: 5px; height: 5px; background: #ffffff; transform: rotate(45deg); }
+        .svc-rule-gem {
+  width: 5px;
+  height: 5px;
+  background: #c4975a;
+  transform: rotate(45deg);
+  box-shadow: 0 0 10px rgba(196,151,90,0.35);
+}
         .svc-title {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: clamp(2.5rem, 4.5vw, 4rem);
-          font-weight: 300; color: #f5f0e8; line-height: 1.08;
-        }
-        .svc-title em { font-style: italic; color: #ffffff; }
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 1.08;
+}
+
+.svc-title em {
+  font-style: italic;
+  color: #c4975a;
+}
         .svc-subtitle {
-          margin-top: 0.9rem; font-size: 0.83rem; font-weight: 300;
-          color: rgba(245,240,232,0.35); letter-spacing: 0.05em; max-width: 380px;
-        }
+  margin-top: 0.9rem;
+  font-size: 0.83rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.78);
+  letter-spacing: 0.05em;
+  max-width: 380px;
+}
 
         /* ── Notice ── */
         @keyframes noticeAppear {
@@ -373,42 +393,64 @@ export default function ServicesSection() {
           margin-bottom: 3rem;
         }
         .svc-tab {
-          position: relative;
-          font-family: 'Jost', sans-serif;
-          font-size: 0.68rem;
-          font-weight: 500;
-          letter-spacing: 0.22em;
-          text-transform: uppercase;
-          padding: 0.65rem 1.8rem;
-          border: 1px solid rgba(255,255,255,0.18);
-          background: transparent;
-          color: rgba(245,240,232,0.35);
-          cursor: pointer;
-          transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
-          overflow: hidden;
-        }
-        .svc-tab::before {
-          content: '';
-          position: absolute; inset: 0;
-          background: rgba(255,255,255,0.05);
-          transform: translateX(-101%);
-          transition: transform 0.3s ease;
-        }
-        .svc-tab:hover { color: rgba(245,240,232,0.6); border-color: rgba(255,255,255,0.32); }
-        .svc-tab:hover::before { transform: translateX(0); }
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 
-        .svc-tab.active {
-          background: #ffffff;
-          border-color: #ffffff;
-          color: #0e0c09;
-        }
-        .svc-tab.active::before { display: none; }
+  font-family: 'Jost', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 
-        .svc-tab-divider {
-          width: 1px;
-          height: 14px;
-          background: rgba(255,255,255,0.18);
-        }
+  padding: 0.7rem 1.8rem;
+
+  border: 1px solid #c4975a;
+  background: #000000;
+  color: #ffffff;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.svc-tab::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #c4975a;
+
+  transform: translateX(-101%);
+  transition: transform 0.35s cubic-bezier(.25,.46,.45,.94);
+}
+
+.svc-tab span {
+  position: relative;
+  z-index: 1;
+}
+
+.svc-tab:hover::before {
+  transform: translateX(0);
+}
+
+.svc-tab:hover {
+  border-color: #ffffff;
+  color: #000000;
+}
+
+.svc-tab.active {
+  background: #c4975a;
+  border-color: #c4975a;
+  color: #000000;
+}
+
+.svc-tab.active::before {
+  display: none;
+}
 
         /* ── Grid ── */
         .svc-grid {
@@ -429,7 +471,7 @@ export default function ServicesSection() {
           to   { opacity: 1; transform: translateY(0); }
         }
         .svc-card {
-          background: #111009;
+          background: #050505;
           display: flex;
           flex-direction: column;
           overflow: hidden;
@@ -440,7 +482,7 @@ export default function ServicesSection() {
           border-right: 1px solid rgba(255,255,255,0.1);
           border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-        .svc-card:hover { background: #161210; }
+        .svc-card:hover { background: #0d0d0d; }
 
         .svc-img-wrap {
           position: relative;
@@ -614,12 +656,12 @@ export default function ServicesSection() {
             {TABS.map((tab, i) => (
               <>
                 <button
-                  key={tab.key}
-                  className={`svc-tab${activeTab === tab.key ? ' active' : ''}`}
-                  onClick={() => handleTab(tab.key)}
-                >
-                  {tab.label}
-                </button>
+  key={tab.key}
+  className={`svc-tab${activeTab === tab.key ? ' active' : ''}`}
+  onClick={() => handleTab(tab.key)}
+>
+  <span>{tab.label}</span>
+</button>
                 {i < TABS.length - 1 && <span key={`div-${i}`} className="svc-tab-divider" />}
               </>
             ))}

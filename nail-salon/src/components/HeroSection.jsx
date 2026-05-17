@@ -1,253 +1,176 @@
 // src/components/HeroSection.jsx
-import { useEffect, useRef } from 'react';
-import nailHero from '../assets/images/landingPage.jpg';
+
 import { Link } from "react-router-dom";
 
 export default function HeroSection() {
-  const parallaxRef = useRef(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (parallaxRef.current) {
-        const y = window.scrollY;
-        parallaxRef.current.style.transform = `translateY(${y * 0.38}px) scale(1.08)`;
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap');
 
-        * { box-sizing: border-box; }
+        * {
+          box-sizing: border-box;
+        }
 
         .fn-hero {
-          min-height: 92vh;
+          min-height: 95vh;
           position: relative;
           display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          justify-content: flex-end;
+          align-items: center;
           overflow: hidden;
           background: #000000;
           font-family: 'Jost', sans-serif;
-          --soft-gold: #c7a56a;
+
+          --soft-gold: #c4975a;
+          --gold-border: rgba(196,151,90,0.25);
         }
 
-        /* Parallax image */
-        .fn-img-wrap {
-          position: absolute;
-          inset: -10%;
-          z-index: 0;
-        }
-        .fn-img-wrap img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          object-position: center 30%;
-          display: block;
-          transform-origin: center top;
-        }
+        /* BACKGROUND GRAIN */
 
-        /* Faint FN watermark */
-        .fn-watermark {
+        .fn-grain {
           position: absolute;
-          right: -40px;
-          top: 50%;
-          transform: translateY(-50%);
+          inset: 0;
           z-index: 1;
-          opacity: 0.02;
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 28rem;
-          font-weight: 600;
-          color: #fff;
-          line-height: 1;
-          letter-spacing: -0.05em;
+          opacity: 0.03;
+
+          background-image:
+            url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
+          background-size: 180px;
+
           pointer-events: none;
-          user-select: none;
         }
 
-    .fn-curve {
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.06);
-  top: 20%;
-  left: 60%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  pointer-events: none;
-}
+        /* ELEGANT LINES */
 
-.fn-curve-2 {
-  width: 800px;
-  height: 800px;
-  opacity: 0.3;
-}
-
-        /* Gradient overlays */
-        .fn-fade-left {
-          position: absolute; inset: 0; z-index: 3;
-          background: linear-gradient(
-            100deg,
-            rgba(8,6,4,0.97) 0%,
-            rgba(8,6,4,0.70) 40%,
-            rgba(8,6,4,0.10) 75%,
-            transparent 100%
-          );
-        }
-        .fn-fade-bottom {
-          position: absolute; inset: 0; z-index: 4;
-          background: linear-gradient(
-            to top,
-            rgba(8,6,4,1) 0%,
-            rgba(8,6,4,0.6) 18%,
-            transparent 45%
-          );
-        }
-
-        /* Navigation */
-        .fn-nav {
+        .fn-lines {
           position: absolute;
-          top: 0; left: 0; right: 0;
-          z-index: 20;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 2rem 3vw;
-          border-bottom: 1px solid rgba(255,255,255,0.05);
+          inset: 0;
+          z-index: 1;
+          pointer-events: none;
         }
-        .fn-nav-brand {
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 1.1rem;
-          font-weight: 600;
-          color: #fff;
-          letter-spacing: 0.08em;
-          text-decoration: none;
-        }
-        .fn-nav-links {
-          display: flex;
-          gap: 2.5rem;
-          list-style: none;
-          margin: 0; padding: 0;
-        }
-        .fn-nav-links a {
-          font-size: 0.6rem;
-          font-weight: 400;
-          letter-spacing: 0.22em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.38);
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-        .fn-nav-links a:hover { color: rgba(255,255,255,0.85); }
-        .fn-nav-book {
-          font-size: 0.6rem;
-          font-weight: 500;
-          letter-spacing: 0.22em;
-          text-transform: uppercase;
-          color: #fff;
-          border: 1px solid rgba(255,255,255,0.3);
-          padding: 0.5rem 1.2rem;
-          text-decoration: none;
-          transition: background 0.25s, color 0.25s;
-        }
-        .fn-nav-book:hover { background: #fff; color: #080604; }
 
-        /* Main content */
+        .fn-l1 {
+          stroke-dasharray: 1400;
+          stroke-dashoffset: 1400;
+          animation: drawL 2.5s ease forwards;
+        }
+
+        .fn-l2 {
+          stroke-dasharray: 900;
+          stroke-dashoffset: 900;
+          animation: drawL 2s ease 0.5s forwards;
+        }
+
+        @keyframes drawL {
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+
+        /* LEFT CONTENT */
+
         .fn-content {
           position: relative;
           z-index: 10;
-          padding: 0 6vw 12vh 6vw;
-          max-width: 900px;
-          animation: fnFadeUp 1.2s cubic-bezier(.25,.46,.45,.94) both;
+
+          flex: 0 0 42%;
+
+          padding:
+            6vh
+            4vw
+            4vh
+            6vw;
+
+          animation: fadeUp 1s ease both;
         }
 
-        /* Eyebrow */
-        .fn-eyebrow {
-          display: flex;
-          align-items: center;
-          gap: 1rem;
-          margin-bottom: 2rem;
-        }
-        .fn-eyebrow-line {
-          display: block;
-          width: 40px; height: 1px;
-          background: #fff;
-        }
-        .fn-eyebrow-text {
-          font-size: 0.6rem;
-          font-weight: 500;
-          letter-spacing: 0.38em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.55);
-        }
-
-        /* Heading */
         .fn-h1 {
           font-family: 'Cormorant Garamond', serif;
-          font-size: clamp(3.2rem, 7vw, 6.5rem);
-          font-weight: 300;
+
+          font-size: clamp(3.5rem, 6vw, 6.3rem);
+
           line-height: 0.92;
-          color: #f8f5f0;
-          letter-spacing: -0.02em;
-          margin-bottom: 0.08em;
-        }
-        .fn-h1 em {
-          font-style: italic;
+
+          font-weight: 300;
+
           color: #ffffff;
-          display: block;
+
+          margin-bottom: 0.2rem;
         }
 
-        /* Ornamental divider */
+        .fn-h1 em {
+          display: block;
+
+          font-style: italic;
+
+          color: #ffffff;
+
+          text-shadow:
+            0 0 25px rgba(196,151,90,0.18);
+        }
+
         .fn-ornament {
           display: flex;
           align-items: center;
           gap: 0.8rem;
-          margin: 2.2rem 0 2rem;
+
+          margin:
+            2rem 0
+            1.8rem;
         }
+
         .fn-orn-line {
+          width: 48px;
           height: 1px;
-          width: 60px;
-          background: rgba(255,255,255,0.25);
+
+          background: var(--gold-border);
         }
+
         .fn-orn-center {
           display: flex;
           align-items: center;
           gap: 5px;
         }
+
         .fn-orn-diamond {
-          width: 5px; height: 5px;
-          background: #fff;
+          width: 5px;
+          height: 5px;
+
+          background: var(--soft-gold);
+
           transform: rotate(45deg);
-          opacity: 0.9;
         }
+
         .fn-orn-diamond-sm {
-          width: 3px; height: 3px;
-          background: rgba(255,255,255,0.4);
+          width: 3px;
+          height: 3px;
+
+          background: rgba(196,151,90,0.5);
+
           transform: rotate(45deg);
         }
 
-        /* Subtitle */
         .fn-sub {
-          font-size: 0.88rem;
-          font-weight: 300;
-          color: rgba(248,245,240,0.42);
-          letter-spacing: 0.07em;
-          line-height: 1.85;
-          max-width: 380px;
-          margin-bottom: 3rem;
+          max-width: 360px;
+
+          color: rgba(255,255,255,0.78);
+
+          font-size: 0.84rem;
+
+          line-height: 1.9;
+
+          letter-spacing: 0.05em;
+
+          margin-bottom: 2.8rem;
         }
 
-        /* CTA row */
+        /* BUTTONS */
+
         .fn-ctas {
           display: flex;
           align-items: center;
-          gap: 2.4rem;
+          gap: 2rem;
           flex-wrap: wrap;
         }
 
@@ -255,168 +178,600 @@ export default function HeroSection() {
           display: inline-flex;
           align-items: center;
           gap: 0.7rem;
-          background: transparent;
-          color: var(--soft-gold);
-  border: 1px solid rgba(199,165,106,0.45);
-          font-family: 'Jost', sans-serif;
-          font-size: 0.65rem;
-          font-weight: 500;
-          letter-spacing: 0.28em;
-          text-transform: uppercase;
-          padding: 1rem 2.2rem;
+
+          padding:
+            1rem
+            2.2rem;
+
+          border: 1px solid var(--soft-gold);
+
           text-decoration: none;
-          cursor: pointer;
+
+          color: var(--soft-gold);
+
+          text-transform: uppercase;
+
+          letter-spacing: 0.24em;
+
+          font-size: 0.62rem;
+
           position: relative;
+
           overflow: hidden;
-          transition: border-color 0.3s;
+
+          transition: all 0.35s ease;
         }
+
         .fn-btn-primary::before {
           content: '';
-          position: absolute; inset: 0;
+
+          position: absolute;
+          inset: 0;
+
           background: var(--soft-gold);
+
           transform: translateX(-102%);
-          transition: transform 0.35s cubic-bezier(.25,.46,.45,.94);
+
+          transition: transform 0.4s ease;
         }
+
         .fn-btn-primary span,
         .fn-btn-primary svg {
           position: relative;
-          z-index: 1;
-          transition: color 0.3s;
+          z-index: 2;
         }
-        .fn-btn-primary:hover::before { transform: translateX(0); }
-        .fn-btn-primary:hover span,
-        .fn-btn-primary:hover svg { color: #080604; }
-        .fn-btn-primary:hover { border-color: #fff; }
+
+        .fn-btn-primary:hover::before {
+          transform: translateX(0);
+        }
+
+        .fn-btn-primary:hover {
+          color: #000000;
+        }
 
         .fn-btn-ghost {
-          font-family: 'Jost', sans-serif;
-          font-size: 0.65rem;
-          font-weight: 400;
-          letter-spacing: 0.22em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.32);
           text-decoration: none;
-          border-bottom: 1px solid rgba(255,255,255,0.15);
-          padding-bottom: 3px;
-          transition: color 0.25s, border-color 0.25s;
-        }
-        .fn-btn-ghost:hover {
-          color: rgba(255,255,255,0.7);
-          border-bottom-color: rgba(255,255,255,0.4);
+
+          color: #ffffff;
+
+          font-size: 0.62rem;
+
+          text-transform: uppercase;
+
+          letter-spacing: 0.22em;
+
+          position: relative;
         }
 
-        /* Scroll indicator */
+        .fn-btn-ghost::after {
+          content: '';
+
+          position: absolute;
+
+          left: 0;
+          bottom: -4px;
+
+          width: 0;
+          height: 1px;
+
+          background: var(--soft-gold);
+
+          transition: width 0.35s ease;
+        }
+
+        .fn-btn-ghost:hover::after {
+          width: 100%;
+        }
+
+        /* RIGHT SIDE */
+
+        .fn-media {
+          position: relative;
+          flex: 0 0 58%;
+          height: 95vh;
+          z-index: 5;
+        }
+
+        .fn-media-layout {
+          position: relative;
+          width: 100%;
+          height: 100%;
+        }
+
+        /* MAIN IMAGE */
+
+        .fn-main-media {
+          position: absolute;
+
+          left: 2%;
+          top: 12%;
+
+          width: 48%;
+          height: 74%;
+
+          overflow: hidden;
+
+          border-radius: 2px;
+
+          box-shadow:
+            0 40px 100px rgba(0,0,0,0.95);
+
+          animation: floatA 10s ease-in-out infinite;
+        }
+
+        .fn-main-media::after {
+          content: '';
+
+          position: absolute;
+          inset: 0;
+
+          background:
+            linear-gradient(
+              to top,
+              rgba(0,0,0,0.65),
+              transparent 45%
+            );
+
+          z-index: 2;
+        }
+
+        .fn-main-media img {
+          width: 100%;
+          height: 100%;
+
+          object-fit: cover;
+
+          filter:
+            brightness(0.92)
+            contrast(1.04);
+
+          transition:
+            transform 1.4s ease,
+            filter 1.2s ease;
+        }
+
+        .fn-main-media:hover img {
+          transform: scale(1.05);
+          filter: brightness(1);
+        }
+
+        /* VIDEO */
+
+        .fn-floating-video {
+          position: absolute;
+
+          left: 46%;
+          top: 28%;
+
+          width: 34%;
+          height: 48%;
+
+          z-index: 6;
+
+          overflow: hidden;
+
+          border-radius: 2px;
+
+          box-shadow:
+            0 30px 80px rgba(0,0,0,1);
+
+          animation: floatB 8s ease-in-out infinite;
+        }
+
+        .fn-floating-video::before {
+          content: '';
+
+          position: absolute;
+
+          left: -180px;
+          top: 50%;
+
+          width: 220px;
+          height: 1px;
+
+          transform: translateY(-50%);
+
+          background:
+            linear-gradient(
+              to right,
+              rgba(196,151,90,0),
+              rgba(196,151,90,0.45),
+              rgba(196,151,90,0)
+            );
+
+          filter: blur(0.4px);
+
+          z-index: 10;
+        }
+
+        .fn-floating-video::after {
+          content: '';
+
+          position: absolute;
+          inset: 0;
+
+          background:
+            linear-gradient(
+              135deg,
+              rgba(196,151,90,0.12),
+              transparent 30%,
+              transparent 70%,
+              rgba(196,151,90,0.08)
+            );
+
+          z-index: 2;
+
+          pointer-events: none;
+        }
+
+        .fn-floating-video video {
+          width: 100%;
+          height: 100%;
+
+          object-fit: cover;
+
+          filter:
+            brightness(0.9)
+            contrast(1.05);
+
+          transition:
+            transform 1s ease,
+            filter 1s ease;
+        }
+
+        .fn-floating-video:hover video {
+          transform: scale(1.06);
+          filter: brightness(1);
+        }
+
+        /* BLEND LAYER */
+
+        .fn-media-blend {
+          position: absolute;
+
+          left: 42%;
+          top: 22%;
+
+          width: 18%;
+          height: 48%;
+
+          z-index: 5;
+
+          pointer-events: none;
+
+          background:
+            radial-gradient(
+              circle at center,
+              rgba(196,151,90,0.10),
+              transparent 72%
+            );
+
+          filter: blur(18px);
+        }
+
+        .fn-lux-accent {
+          position: absolute;
+
+          left: 39%;
+          top: 58%;
+
+          width: 140px;
+          height: 140px;
+
+          border-radius: 50%;
+
+          background:
+            radial-gradient(
+              circle,
+              rgba(196,151,90,0.12),
+              transparent 72%
+            );
+
+          filter: blur(25px);
+
+          z-index: 3;
+
+          pointer-events: none;
+        }
+
+        /* SCROLL */
+
         .fn-scroll {
           position: absolute;
-          right: 3vw; top: 50%;
+
+          right: 1.5vw;
+          top: 50%;
+
           transform: translateY(-50%);
-          z-index: 10;
+
+          z-index: 20;
+
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 0.5rem;
-          opacity: 0;
-          animation: fnFadeIn 1s ease 1.4s forwards;
+          gap: 0.6rem;
         }
+
         .fn-scroll-txt {
-          font-size: 0.5rem;
-          font-weight: 500;
-          letter-spacing: 0.3em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.25);
           writing-mode: vertical-rl;
+
+          font-size: 0.48rem;
+
+          text-transform: uppercase;
+
+          letter-spacing: 0.28em;
+
+          color: var(--soft-gold);
         }
+
         .fn-scroll-bar {
-          width: 1px; height: 48px;
-          background: rgba(199,165,106,0.2);
-          position: relative;
+          width: 1px;
+          height: 50px;
+
+          background: rgba(196,151,90,0.2);
+
           overflow: hidden;
+
+          position: relative;
         }
+
         .fn-scroll-bar::after {
           content: '';
+
           position: absolute;
-          top: 0; left: 0; right: 0;
-          height: 100%;
-          background: rgba(255,255,255,0.6);
-          animation: fnScrollDrop 2s ease-in-out infinite;
+          inset: 0;
+
+          background: var(--soft-gold);
+
+          animation: scrollDrop 2s ease infinite;
         }
 
-        /* Stat strip */
-        .fn-strip {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  z-index: 10;
-  display: flex;
-  justify-content: flex-end;
-}
+        /* STATS */
 
-        .fn-strip-inner { display: flex; }
+        .fn-strip {
+          position: absolute;
+
+          bottom: 0;
+          left: 0;
+          right: 0;
+
+          z-index: 15;
+
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .fn-strip-inner {
+          display: flex;
+        }
+
         .fn-strip-item {
-          padding: 1.2rem 2.2rem;
-          border-left: 1px solid rgba(255,255,255,0.08);
+          padding:
+            0.7rem
+            2rem;
+
+          border-left: 1px solid var(--gold-border);
+
+          border-top: 1px solid var(--gold-border);
+
+          background: rgba(0,0,0,0.95);
+
           text-align: center;
         }
+
         .fn-strip-num {
+          display: block;
+
           font-family: 'Cormorant Garamond', serif;
-          font-size: 1.6rem;
-          font-weight: 300;
+
+          font-size: 1.4rem;
+
           color: var(--soft-gold);
-          display: block;
-          line-height: 1;
-          letter-spacing: -0.02em;
-        }
-        .fn-strip-lbl {
-          font-size: 0.55rem;
-          font-weight: 500;
-          letter-spacing: 0.25em;
-          text-transform: uppercase;
-          color: rgba(248,245,240,0.25);
-          display: block;
-          margin-top: 0.35rem;
         }
 
-        /* Animations */
-        @keyframes fnFadeUp {
-          from { opacity: 0; transform: translateY(28px); }
-          to   { opacity: 1; transform: translateY(0); }
+        .fn-strip-lbl {
+          display: block;
+
+          margin-top: 0.3rem;
+
+          font-size: 0.48rem;
+
+          text-transform: uppercase;
+
+          letter-spacing: 0.22em;
+
+          color: rgba(255,255,255,0.7);
         }
-        @keyframes fnFadeIn {
-          from { opacity: 0; } to { opacity: 1; }
+
+        /* ANIMATIONS */
+
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        @keyframes fnScrollDrop {
-          0%   { transform: translateY(-100%); }
+
+        @keyframes floatA {
+          0%,100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+
+        @keyframes floatB {
+          0%,100% { transform: translateY(0); }
+          50% { transform: translateY(10px); }
+        }
+
+        @keyframes scrollDrop {
+          0% { transform: translateY(-100%); }
           100% { transform: translateY(200%); }
         }
 
-        @media (max-width: 768px) {
-          .fn-nav-links { display: none; }
-          .fn-content { padding: 0 1.5rem 8vh; }
-          .fn-strip-item { padding: 0.9rem 1.2rem; }
-          .fn-scroll { display: none; }
-          .fn-watermark { font-size: 14rem; right: -20px; }
-          .fn-corner-tr { top: 1.2rem; right: 1.2rem; }
+        /* ─────────────────────────────
+           MOBILE
+        ───────────────────────────── */
+
+        @media (max-width: 900px) {
+
+          /* Stack vertically, full height auto */
+          .fn-hero {
+            flex-direction: column;
+            align-items: stretch;
+            min-height: 100svh;
+          }
+
+          /* ── Content block ── */
+          .fn-content {
+            width: 100%;
+            flex: none;
+            padding: 7rem 1.6rem 2rem;
+            text-align: center;
+          }
+
+          .fn-h1 {
+            font-size: clamp(3rem, 13vw, 4.5rem);
+            line-height: 0.95;
+          }
+
+          .fn-ornament {
+            justify-content: center;
+            margin: 1.4rem 0 1.2rem;
+          }
+
+          .fn-sub {
+            max-width: 100%;
+            font-size: 0.82rem;
+            margin-bottom: 2rem;
+          }
+
+          .fn-ctas {
+            justify-content: center;
+            gap: 1.2rem;
+          }
+
+          /* ── Media block ── */
+          .fn-media {
+            flex: none;
+            width: 100%;
+            /* fixed aspect so images aren't crushed */
+            height: 72vw;
+            min-height: 280px;
+            max-height: 440px;
+          }
+
+          /* Main image: left side, taller */
+          .fn-main-media {
+            left: 3%;
+            top: 5%;
+            width: 56%;
+            height: 88%;
+          }
+
+          /* Floating video: right side, offset down */
+          .fn-floating-video {
+            left: auto;
+            right: 3%;
+            top: 20%;
+            width: 40%;
+            height: 65%;
+          }
+
+          /* Hide decorative blends on mobile (perf + space) */
+          .fn-media-blend,
+          .fn-lux-accent,
+          .fn-floating-video::before {
+            display: none;
+          }
+
+          /* Hide scroll indicator */
+          .fn-scroll {
+            display: none;
+          }
+
+          /* ── Stats strip ── */
+          .fn-strip {
+            /* take it out of absolute flow so it doesn't overlap media */
+            position: relative;
+            bottom: auto;
+            left: auto;
+            right: auto;
+            justify-content: stretch;
+          }
+
+          .fn-strip-inner {
+            width: 100%;
+          }
+
+          .fn-strip-item {
+            flex: 1;
+            padding: 0.9rem 0.5rem;
+            border-left: 1px solid var(--gold-border);
+            border-top: 1px solid var(--gold-border);
+          }
+
+          /* Remove left border on first item to avoid double edge */
+          .fn-strip-item:first-child {
+            border-left: none;
+          }
+
+          .fn-strip-num {
+            font-size: 1.3rem;
+          }
+
+          .fn-strip-lbl {
+            font-size: 0.44rem;
+          }
+        }
+
+        /* Extra-small phones */
+        @media (max-width: 400px) {
+          .fn-content {
+            padding-top: 6rem;
+          }
+
+          .fn-media {
+            height: 80vw;
+            min-height: 240px;
+          }
+
+          .fn-btn-primary {
+            padding: 0.85rem 1.5rem;
+            font-size: 0.58rem;
+          }
         }
       `}</style>
 
       <section id="hero" className="fn-hero">
 
-        {/* Parallax image */}
-        <div className="fn-img-wrap">
-          <img ref={parallaxRef} src={nailHero} alt="Finer Nails Spa - Nail studio" />
-        </div>
+        <div className="fn-grain" />
 
-        {/* Background layers */}
-        <div className="fn-watermark">FN</div>
-        <div className="fn-curve fn-curve-2" />
+        <svg
+          className="fn-lines"
+          viewBox="0 0 1440 900"
+          preserveAspectRatio="xMidYMid slice"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <line
+            className="fn-l1"
+            x1="0" y1="900" x2="700" y2="0"
+            stroke="rgba(196,151,90,0.08)"
+            strokeWidth="1"
+          />
+          <line
+            className="fn-l2"
+            x1="900" y1="0" x2="1440" y2="650"
+            stroke="rgba(196,151,90,0.05)"
+            strokeWidth="1"
+          />
+        </svg>
 
-        <div className="fn-fade-left" />
-        <div className="fn-fade-bottom" />
-
-
-
-        {/* Hero content */}
+        {/* LEFT CONTENT */}
         <div className="fn-content">
-
 
           <h1 className="fn-h1">
             Indulge in
@@ -434,33 +789,64 @@ export default function HeroSection() {
           </div>
 
           <p className="fn-sub">
-            Where artistry meets ritual. Experience considered nail care in a serene, unhurried environment.
+            Where artistry meets ritual.
+            Experience considered nail care
+            in a serene, luxurious atmosphere.
           </p>
 
           <div className="fn-ctas">
             <Link to="/booking" className="fn-btn-primary">
               <span>Book Your Appointment</span>
-              <svg width="11" height="11" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+              <svg
+                width="11" height="11"
+                fill="none" stroke="currentColor"
+                strokeWidth="1.8" viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round" strokeLinejoin="round"
+                  d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
+                />
               </svg>
             </Link>
-            <a href="#gallery" className="fn-btn-ghost">View Our Work</a>
+
+            <a href="#gallery" className="fn-btn-ghost">
+              View Our Work
+            </a>
+          </div>
+
+        </div>
+
+        {/* RIGHT SIDE */}
+        <div className="fn-media">
+          <div className="fn-media-layout">
+
+            <div className="fn-main-media">
+              <img src="/3.jpeg" alt="Luxury nails" />
+            </div>
+
+            <div className="fn-media-blend" />
+            <div className="fn-lux-accent" />
+
+            <div className="fn-floating-video">
+              <video src="/6.mp4" autoPlay muted loop playsInline />
+            </div>
+
           </div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* SCROLL INDICATOR */}
         <div className="fn-scroll">
           <span className="fn-scroll-txt">Scroll</span>
           <span className="fn-scroll-bar" />
         </div>
 
-        {/* Stat strip */}
+        {/* STATS */}
         <div className="fn-strip">
           <div className="fn-strip-inner">
             {[
-              ['8+',   'Years'],
+              ['8+', 'Years'],
               ['500+', 'Clients'],
-              ['50+',  'Designs'],
+              ['50+', 'Designs'],
             ].map(([num, lbl]) => (
               <div key={lbl} className="fn-strip-item">
                 <span className="fn-strip-num">{num}</span>

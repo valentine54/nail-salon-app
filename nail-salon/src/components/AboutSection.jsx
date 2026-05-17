@@ -40,7 +40,6 @@ export default function AboutSection() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
 
-        /* ── Shared token ── */
         :root {
           --fn-black:  #000000;
           --fn-gold:   #c4975a;
@@ -50,13 +49,12 @@ export default function AboutSection() {
 
         .abt-root {
           background: var(--fn-black);
-          padding: 8rem 0 7rem;
+          padding: 3rem 0 3rem;
           position: relative;
           overflow: hidden;
           font-family: 'Jost', sans-serif;
         }
 
-        /* Faint circle decoration */
         .abt-root::before {
           content: '';
           position: absolute;
@@ -67,7 +65,6 @@ export default function AboutSection() {
           pointer-events: none;
         }
 
-        /* Grain */
         .abt-grain {
           position: absolute; inset: 0; pointer-events: none; opacity: 0.025;
           background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -79,7 +76,6 @@ export default function AboutSection() {
           position: relative; z-index: 1;
         }
 
-        /* Two-column layout */
         .abt-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
@@ -87,14 +83,13 @@ export default function AboutSection() {
           align-items: start;
         }
 
-        /* ── LEFT COLUMN ── */
+        /* ── LEFT ── */
         .abt-left {
           opacity: 0; transform: translateX(-24px);
           transition: opacity 0.8s ease, transform 0.8s ease;
         }
         .abt-left.visible { opacity: 1; transform: translateX(0); }
 
-        /* Eyebrow - soft gold */
         .abt-eyebrow {
           font-size: 0.65rem; font-weight: 500; letter-spacing: 0.3em;
           text-transform: uppercase;
@@ -105,12 +100,10 @@ export default function AboutSection() {
         .abt-rule {
           display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.2rem;
         }
-        /* Gold rule line */
         .abt-rule-line {
           width: 44px; height: 1px;
           background: linear-gradient(to right, transparent, var(--fn-gold-d));
         }
-        /* Gold gem */
         .abt-rule-gem {
           width: 5px; height: 5px;
           background: var(--fn-gold);
@@ -124,7 +117,6 @@ export default function AboutSection() {
           line-height: 1.05; letter-spacing: -0.01em;
           margin-bottom: 2rem;
         }
-        /* Italic em - soft gold */
         .abt-title em {
           font-style: italic;
           color: var(255,255,255,0.6);
@@ -141,7 +133,6 @@ export default function AboutSection() {
           font-weight: 500; color: rgba(245,240,232,0.78);
         }
 
-        /* Stats row */
         .abt-stats {
           display: flex; gap: 0; margin-top: 2.8rem;
           border: 1px solid rgba(255,255,255,0.08);
@@ -151,7 +142,6 @@ export default function AboutSection() {
           border-right: 1px solid rgba(255,255,255,0.08);
         }
         .abt-stat:last-child { border-right: none; }
-        /* Gold stat number */
         .abt-stat-num {
           display: block;
           font-family: 'Cormorant Garamond', serif;
@@ -166,12 +156,10 @@ export default function AboutSection() {
           color: rgba(245,240,232,0.28);
         }
 
-        /* Signature */
         .abt-sig {
           margin-top: 2.2rem;
           display: flex; align-items: center; gap: 1rem;
         }
-        /* Gold-rimmed avatar */
         .abt-sig-avatar {
           width: 44px; height: 44px;
           border: 1px solid var(--fn-gold-d);
@@ -192,7 +180,7 @@ export default function AboutSection() {
           display: block; margin-top: 0.2rem;
         }
 
-        /* ── RIGHT COLUMN ── */
+        /* ── RIGHT ── */
         .abt-right {
           display: flex; flex-direction: column; gap: 1px;
         }
@@ -211,7 +199,6 @@ export default function AboutSection() {
         .abt-pillar.visible { opacity: 1; transform: translateX(0); }
         .abt-pillar:hover { background: rgba(196,151,90,0.04); }
 
-        /* Gold pillar number */
         .abt-pillar-num {
           font-family: 'Cormorant Garamond', serif;
           font-size: 0.8rem; font-weight: 300;
@@ -221,7 +208,6 @@ export default function AboutSection() {
           opacity: 0.7;
         }
 
-        /* Gold pillar title */
         .abt-pillar-title {
           font-family: 'Cormorant Garamond', serif;
           font-size: 1.2rem; font-weight: 400;
@@ -235,7 +221,6 @@ export default function AboutSection() {
           line-height: 1.8; letter-spacing: 0.02em;
         }
 
-        /* Quote block */
         .abt-quote {
           background: var(--fn-black);
           border: 1px solid rgba(196,151,90,0.18);
@@ -246,7 +231,6 @@ export default function AboutSection() {
         }
         .abt-quote.visible { opacity: 1; transform: translateY(0); }
 
-        /* Gold quote mark */
         .abt-quote-mark {
           font-family: 'Cormorant Garamond', serif;
           font-size: 3.5rem; font-weight: 300;
@@ -261,7 +245,6 @@ export default function AboutSection() {
           color: rgba(245,240,232,0.55); line-height: 1.65;
           letter-spacing: 0.01em;
         }
-        /* Gold attribution */
         .abt-quote-attr {
           display: block; margin-top: 1rem;
           font-size: 0.6rem; font-weight: 500;
@@ -270,11 +253,14 @@ export default function AboutSection() {
           opacity: 0.6;
         }
 
+        /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
-          .abt-grid { grid-template-columns: 1fr; gap: 4rem; }
+          .abt-root { padding: 2.5rem 0 4rem; }   /* ← was 8rem 0 7rem */
+          .abt-grid { grid-template-columns: 1fr; gap: 3rem; }
         }
+
         @media (max-width: 600px) {
-          .abt-root { padding: 6rem 0 5rem; }
+          .abt-root { padding: 2rem 0 3.5rem; }
           .abt-stats { flex-direction: column; }
           .abt-stat { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); }
           .abt-stat:last-child { border-bottom: none; }
@@ -311,9 +297,7 @@ export default function AboutSection() {
               </p>
 
               <div className="abt-stats">
-                {[
-                  ['100%', 'Cruelty-Free'],
-                ].map(([n, l]) => (
+                {[['100%', 'Cruelty-Free']].map(([n, l]) => (
                   <div key={l} className="abt-stat">
                     <span className="abt-stat-num">{n}</span>
                     <span className="abt-stat-lbl">{l}</span>

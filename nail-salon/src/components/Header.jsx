@@ -45,10 +45,10 @@ export default function Header() {
           font-family: 'Jost', sans-serif;
         }
         .hdr-root.scrolled {
-          background: rgba(8, 6, 4, 0.94);
+          background: rgba(0, 0, 0, 0.95);
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border-bottom-color: rgba(255, 255, 255, 0.07);
+          border-bottom-color: rgba(196, 151, 90, 0.25);
           height: 64px;
         }
 
@@ -63,7 +63,6 @@ export default function Header() {
         .hdr-logo-mark {
           width: 36px;
           height: 36px;
-//           border: 1px solid rgba(255,255,255,0.3);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -76,9 +75,6 @@ export default function Header() {
           height: 100%;
           object-fit: cover;
         }
-        .hdr-logo:hover .hdr-logo-mark {
-          border-color: rgba(255,255,255,0.7);
-        }
         .hdr-logo-text {
           display: flex;
           flex-direction: column;
@@ -89,7 +85,7 @@ export default function Header() {
           font-family: 'Cormorant Garamond', serif;
           font-size: 1.2rem;
           font-weight: 400;
-          color: #f5f0e8;
+          color: #ffffff;
           letter-spacing: 0.04em;
           white-space: nowrap;
         }
@@ -102,7 +98,8 @@ export default function Header() {
           font-weight: 400;
           letter-spacing: 0.22em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.35);
+          color: #ffffff;
+          opacity: 0.5;
           white-space: nowrap;
         }
 
@@ -122,7 +119,8 @@ export default function Header() {
           font-weight: 400;
           letter-spacing: 0.22em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.42);
+          color: #ffffff;
+          opacity: 1;
           text-decoration: none;
           padding: 0.45rem 0.9rem;
           position: relative;
@@ -133,13 +131,13 @@ export default function Header() {
           position: absolute;
           bottom: 0; left: 0.9rem; right: 0.9rem;
           height: 1px;
-          background: #ffffff;
+          background: #c4975a;
           transform: scaleX(0);
           transform-origin: left;
           transition: transform 0.3s cubic-bezier(.25,.46,.45,.94);
         }
         .hdr-nav a:hover {
-          color: rgba(255,255,255,0.9);
+          color: #ffffff;
         }
         .hdr-nav a:hover::after {
           transform: scaleX(1);
@@ -153,12 +151,12 @@ export default function Header() {
           flex-shrink: 0;
         }
 
-        /* Book Now button */
+        /* Book Now button with Gold Fill Hover */
         .hdr-book-btn {
           display: inline-flex;
           align-items: center;
           gap: 0.55rem;
-          border: 1px solid rgba(255,255,255,0.4);
+          border: 1px solid #c4975a;
           color: #ffffff;
           font-family: 'Jost', sans-serif;
           font-size: 0.62rem;
@@ -171,13 +169,13 @@ export default function Header() {
           position: relative;
           overflow: hidden;
           white-space: nowrap;
-          background: transparent;
+          background: #000000;
           cursor: pointer;
         }
         .hdr-book-btn::before {
           content: '';
           position: absolute; inset: 0;
-          background: #ffffff;
+          background: #c4975a;
           transform: translateX(-101%);
           transition: transform 0.35s cubic-bezier(.25,.46,.45,.94);
         }
@@ -189,21 +187,22 @@ export default function Header() {
         }
         .hdr-book-btn:hover::before { transform: translateX(0); }
         .hdr-book-btn:hover span,
-        .hdr-book-btn:hover svg    { color: #080604; }
+        .hdr-book-btn:hover svg    { color: #000000; }
 
         /* Team / profile icon */
         .hdr-team-icon {
           display: flex;
           align-items: center;
           justify-content: center;
-          color: rgba(255,255,255,0.3);
+          color: #ffffff;
+          opacity: 0.5;
           text-decoration: none;
-          transition: color 0.25s ease, transform 0.25s ease;
+          transition: opacity 0.25s ease, transform 0.25s ease;
           padding: 0.25rem;
         }
         .hdr-team-icon svg { width: 18px; height: 18px; }
         .hdr-team-icon:hover {
-          color: rgba(255,255,255,0.85);
+          opacity: 1;
           transform: translateY(-1px);
         }
 
@@ -211,7 +210,7 @@ export default function Header() {
         .hdr-sep {
           width: 1px;
           height: 16px;
-          background: rgba(255,255,255,0.12);
+          background: rgba(196, 151, 90, 0.4);
         }
 
         /* ── Mobile burger ── */
@@ -228,7 +227,7 @@ export default function Header() {
           display: block;
           width: 22px;
           height: 1px;
-          background: rgba(245,240,232,0.65);
+          background: #ffffff;
           transition: all 0.3s ease;
           transform-origin: center;
         }
@@ -240,9 +239,9 @@ export default function Header() {
         .hdr-drawer {
           position: fixed;
           top: 64px; left: 0; right: 0;
-          background: rgba(8,6,4,0.97);
+          background: rgba(0, 0, 0, 0.98);
           backdrop-filter: blur(20px);
-          border-bottom: 1px solid rgba(255,255,255,0.07);
+          border-bottom: 1px solid rgba(196, 151, 90, 0.25);
           padding: 1.5rem 1.5rem 2rem;
           display: flex;
           flex-direction: column;
@@ -261,21 +260,21 @@ export default function Header() {
           font-weight: 400;
           letter-spacing: 0.22em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.45);
+          color: #ffffff;
+          opacity: 1;
           text-decoration: none;
           padding: 1rem 0;
-          border-bottom: 1px solid rgba(255,255,255,0.06);
-          transition: color 0.2s;
+          border-bottom: 1px solid rgba(196, 151, 90, 0.15);
         }
-        .hdr-drawer-link:hover { color: rgba(255,255,255,0.85); }
+
         .hdr-drawer-book {
           margin-top: 1.5rem;
           display: inline-flex;
           align-items: center;
           justify-content: center;
           gap: 0.6rem;
-          border: 1px solid rgba(255,255,255,0.35);
-          color: #fff;
+          border: 1px solid #c4975a;
+          color: #ffffff;
           font-family: 'Jost', sans-serif;
           font-size: 0.65rem;
           font-weight: 500;
@@ -285,13 +284,13 @@ export default function Header() {
           text-decoration: none;
           position: relative;
           overflow: hidden;
-          background: transparent;
+          background: #000000;
           transition: border-color 0.3s;
         }
         .hdr-drawer-book::before {
           content: '';
           position: absolute; inset: 0;
-          background: #fff;
+          background: #c4975a;
           transform: translateX(-101%);
           transition: transform 0.35s cubic-bezier(.25,.46,.45,.94);
         }
@@ -299,7 +298,7 @@ export default function Header() {
         .hdr-drawer-book svg { position: relative; z-index: 1; transition: color 0.3s; }
         .hdr-drawer-book:hover::before { transform: translateX(0); }
         .hdr-drawer-book:hover span,
-        .hdr-drawer-book:hover svg { color: #080604; }
+        .hdr-drawer-book:hover svg { color: #000000; }
 
         /* ── Responsive ── */
         @media (max-width: 900px) {
@@ -310,11 +309,46 @@ export default function Header() {
         }
 
         @media (max-width: 640px) {
-          .hdr-root { height: 64px; }
-          .hdr-logo-mark { width: 30px; height: 30px; }
-          .hdr-logo-name { font-size: 1rem; }
-          .hdr-logo-sub { display: none; }
-        }
+
+  .hdr-root {
+    height: 64px;
+    padding: 0 1rem;
+  }
+
+  .hdr-logo {
+    gap: 0.55rem;
+    max-width: 75%;
+  }
+
+  .hdr-logo-mark {
+    width: 30px;
+    height: 30px;
+  }
+
+  .hdr-logo-text {
+    min-width: 0;
+  }
+
+  .hdr-logo-name {
+    font-size: 0.92rem;
+    line-height: 1;
+  }
+
+  .hdr-logo-sub {
+    display: block;
+    font-size: 0.42rem;
+    letter-spacing: 0.12em;
+    opacity: 0.62;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hdr-burger {
+    flex-shrink: 0;
+  }
+}
       `}</style>
 
       <header className={`hdr-root ${scrolled ? 'scrolled' : ''}`}>
