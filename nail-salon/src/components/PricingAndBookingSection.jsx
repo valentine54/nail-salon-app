@@ -214,6 +214,14 @@ export default function PricingAndBookingSection() {
       advance();
     }
   };
+const handleStep3Continue = () => {
+  if (editingTechFromReview) {
+    setEditingTechFromReview(false);
+    setStep(6);
+  } else {
+    advance();
+  }
+};
 
   const handleStep4Continue = () => {
     if (editingTechFromReview) {
@@ -818,7 +826,11 @@ export default function PricingAndBookingSection() {
                     label="Service Tiers"
                     value={serviceLabel}
                     onEdit={() => {
-                      setServicesAtEditStart({ wantsMani, wantsPedi, wantsSpa });
+                      setServicesAtEditStart({
+  mani: wantsMani,
+  pedi: wantsPedi,
+  spa: wantsSpa
+});
                       setEditingFromReview(true);
                       setStep(1);
                     }}
