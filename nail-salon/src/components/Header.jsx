@@ -366,12 +366,12 @@ export default function Header() {
 
         {/* Centre nav */}
         <ul className="hdr-nav">
-          {navLinks.map(({ label, href }) => (
-            <li key={label}>
-              <a href={href}>{label}</a>
-            </li>
-          ))}
-        </ul>
+  {navLinks.map(({ label, href }) => (
+    <li key={label}>
+      <Link to={href}>{label}</Link>
+    </li>
+  ))}
+</ul>
 
         {/* Right actions */}
         <div className="hdr-right">
@@ -406,14 +406,14 @@ export default function Header() {
       {/* Mobile drawer */}
       <div className={`hdr-drawer ${menuOpen ? 'open' : ''}`}>
         {navLinks.map(({ label, href }) => (
-          <a
+          <Link
             key={label}
             href={href}
             className="hdr-drawer-link"
             onClick={() => setMenuOpen(false)}
           >
             {label}
-          </a>
+          </Link>
         ))}
 
         <Link
