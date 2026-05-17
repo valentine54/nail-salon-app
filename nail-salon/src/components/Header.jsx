@@ -327,8 +327,8 @@ export default function Header() {
   }
 
   .hdr-logo-name {
-    font-size: 0.92rem;
-    font-size: 1.15rem;
+    font-size: 1.65rem;
+    font-weight: 600;
     line-height: 1;
   }
 
