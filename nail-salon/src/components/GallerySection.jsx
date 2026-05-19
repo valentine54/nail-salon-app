@@ -22,22 +22,22 @@ import pedi5 from "/nails/16.png";
 
 
 const nails = [
-  { src: nail1, alt: "Elegant French manicure", label: "French Manicure" },
-  { src: nail7, alt: "Gold foil nail art", label: "Gold Foil Art" },
-  { src: nail3, alt: "Blush pink gel nails", label: "Blush Gel Set" },
-   { src: nail2, alt: "Blush pink gel nails", label: "Blush Gel Set" },
-    { src: nail8, alt: "Blush pink gel nails", label: "Blush Gel Set" },
-     { src: nail5, alt: "Blush pink gel nails", label: "Blush Gel Set" },
-      { src: nail9, alt: "Blush pink gel nails", label: "Blush Gel Set" },
-       { src: nail6, alt: "Blush pink gel nails", label: "Blush Gel Set" },
-        { src: nail4, alt: "Blush pink gel nails", label: "Blush Gel Set" },
+  { src: nail1 },
+  { src: nail7 },
+  { src: nail3 },
+   { src: nail2 },
+    { src: nail8 },
+     { src: nail5 },
+      { src: nail9 },
+       { src: nail6 },
+        { src: nail4 },
         ];
 
 const pedicures = [
-  { src: pedi1, alt: "Luxury spa pedicure", label: "Spa Pedicure" },
-  { src: pedi2, alt: "Glossy gel pedicure", label: "Gel Finish" },
-  { src: pedi4, alt: "Moroccan wrap pedicure", label: "Moroccan Wrap" },
-  { src: pedi5, alt: "Citrus jelly pedicure", label: "Citrus Jelly Soak" },
+  { src: pedi1 },
+  { src: pedi2 },
+  { src: pedi4 },
+  { src: pedi5 },
 
 ];
 
