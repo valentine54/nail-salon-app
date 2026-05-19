@@ -6,33 +6,39 @@ import { Link } from "react-router-dom";
 import 'swiper/css';
 
 import nail1 from "/2.jpeg";
+import nail7 from "/nails/10.png";
+import nail3 from "/nails/6.png";
 import nail2 from "/3.jpeg";
-import nail3 from "/4.jpeg";
-import pedi1 from "/5.jpeg";
-import pedi2 from "../assets/images/gold-foil-nail-art.jpg";
-import pedi3 from "../assets/images/blush-pink-gel-nails.jpg";
-import pedi4 from "../assets/images/pedi-1.jpg";
-import pedi5 from "../assets/images/pedi-2.jpg";
-import pedi6 from "../assets/images/pedi-3.jpg";
-import pedi7 from "../assets/images/pedi-4.jpg";
-import pedi8 from "../assets/images/pedi-5.jpg";
-import pedi9 from "../assets/images/pedi-6.jpg";
+import nail8 from "/nails/4.png";
+import nail5 from "/nails/9.png";
+import nail9 from "/5.jpeg";
+import nail6 from "/nails/14.png";
+import nail4 from "/nails/3.png";
+import pedi1 from "/nails/1.png";
+import pedi2 from "/nails/2.png";
+import pedi3 from "/nails/5.png";
+import pedi4 from "/nails/11.png";
+import pedi5 from "/nails/16.png";
+
 
 const nails = [
   { src: nail1, alt: "Elegant French manicure", label: "French Manicure" },
-  { src: nail2, alt: "Gold foil nail art", label: "Gold Foil Art" },
+  { src: nail7, alt: "Gold foil nail art", label: "Gold Foil Art" },
   { src: nail3, alt: "Blush pink gel nails", label: "Blush Gel Set" },
-];
+   { src: nail2, alt: "Blush pink gel nails", label: "Blush Gel Set" },
+    { src: nail8, alt: "Blush pink gel nails", label: "Blush Gel Set" },
+     { src: nail5, alt: "Blush pink gel nails", label: "Blush Gel Set" },
+      { src: nail9, alt: "Blush pink gel nails", label: "Blush Gel Set" },
+       { src: nail6, alt: "Blush pink gel nails", label: "Blush Gel Set" },
+        { src: nail4, alt: "Blush pink gel nails", label: "Blush Gel Set" },
+        ];
 
 const pedicures = [
   { src: pedi1, alt: "Luxury spa pedicure", label: "Spa Pedicure" },
   { src: pedi2, alt: "Glossy gel pedicure", label: "Gel Finish" },
   { src: pedi4, alt: "Moroccan wrap pedicure", label: "Moroccan Wrap" },
   { src: pedi5, alt: "Citrus jelly pedicure", label: "Citrus Jelly Soak" },
-  { src: pedi6, alt: "Gel toes", label: "Gel Toes" },
-  { src: pedi7, alt: "Acrylic toes", label: "Acrylic Toes" },
-  { src: pedi8, alt: "Spa ritual pedicure", label: "Spa Ritual" },
-  { src: pedi9, alt: "Pedicure finish", label: "Polished Finish" },
+
 ];
 
 function useInView(threshold = 0.1) {
@@ -60,7 +66,6 @@ function GallerySlider({ items, reverse = false }) {
   };
 
   useEffect(() => () => clearTimeout(timeoutRef.current), []);
-
   const tripled = [...items, ...items, ...items];
 
   return (
@@ -273,8 +278,7 @@ export default function GallerySection() {
 
       <section id="gallery" className="gal-root" ref={sectionRef}>
         <div className="gal-grain" />
-        <div className="gal-fade-left" />
-        <div className="gal-fade-right" />
+
 
         {/* Header */}
         <div className={`gal-header ${inView ? 'visible' : ''}`}>

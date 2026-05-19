@@ -1,5 +1,6 @@
 // src/components/PricingAndBookingSection.jsx
 import { useEffect, useState } from 'react';
+import logo from '../assets/images/finer-logo.png';
 
 // ── Service options ────────────────────────────────────────────────────────────
 
@@ -123,6 +124,9 @@ export default function PricingAndBookingSection() {
   const [maniOption, setManiOption] = useState('');
   const [pediOption, setPediOption] = useState('');
   const [spaOption,  setSpaOption]  = useState('');
+  const [dateDay,   setDateDay]   = useState('');
+const [dateMonth, setDateMonth] = useState('');
+const [dateYear,  setDateYear]  = useState('');
 
   const [technician, setTechnician] = useState('');
   const [selectedDate, setSelectedDate] = useState('');
@@ -133,6 +137,25 @@ export default function PricingAndBookingSection() {
   const [returnToReviewAfterOptions, setReturnToReviewAfterOptions] = useState(false);
   const [editingTechFromReview,      setEditingTechFromReview]      = useState(false);
   const [editingOptionsFromReview,   setEditingOptionsFromReview]   = useState(false);
+
+  // Build selectedDate from the three dropdowns
+useEffect(() => {
+  if (dateDay && dateMonth && dateYear) {
+    const mm = String(dateMonth).padStart(2, '0');
+    const dd = String(dateDay).padStart(2, '0');
+    setSelectedDate(`${dateYear}-${mm}-${dd}`);
+  } else {
+    setSelectedDate('');
+  }
+}, [dateDay, dateMonth, dateYear]);
+
+const currentYear = new Date().getFullYear();
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const daysInMonth = (month, year) => new Date(year, month, 0).getDate();
+const availableDays = (dateMonth && dateYear)
+  ? Array.from({ length: daysInMonth(Number(dateMonth), Number(dateYear)) }, (_, i) => i + 1)
+  : Array.from({ length: 31 }, (_, i) => i + 1);
+const availableYears = Array.from({ length: 3 }, (_, i) => currentYear + i);
 
   const anySelected = wantsMani || wantsPedi || wantsSpa;
 
@@ -158,6 +181,7 @@ export default function PricingAndBookingSection() {
     setEditingFromReview(false);
     setServicesAtEditStart({ mani: false, pedi: false, spa: false });
     setReturnToReviewAfterOptions(false);
+    setDateDay(''); setDateMonth(''); setDateYear('');
     setEditingTechFromReview(false);
     setEditingOptionsFromReview(false);
   };
@@ -224,12 +248,7 @@ const handleStep3Continue = () => {
 };
 
   const handleStep4Continue = () => {
-    if (editingTechFromReview) {
-      setEditingTechFromReview(false);
-      setStep(6);
-    } else {
-      advance();
-    }
+    advance();
   };
 
   const [technicians] = useState([
@@ -382,6 +401,10 @@ const handleStep3Continue = () => {
         .cat-btn-label { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: #ffffff; }
         .cat-btn-desc { font-size: 0.62rem; font-weight: 300; color: #ffffff; opacity: 0.6; letter-spacing: 0.05em; line-height: 1.5; text-align: center; }
 
+
+
+
+
         /* ── Multi-hint ── */
         .multi-hint { display: flex; align-items: center; gap: 0.6rem; background: transparent; border: 1px solid #c4975a; border-left: 3px solid #c4975a; padding: 0.65rem 1rem; margin-bottom: 1.5rem; font-size: 0.7rem; font-weight: 400; letter-spacing: 0.06em; color: #c4975a; }
         .multi-hint-icon { flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 10px; height: 10px; }
@@ -429,24 +452,137 @@ const handleStep3Continue = () => {
         .dt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.15); margin-bottom: 1.5rem; }
         .dt-field { background: #000000; padding: 1.4rem 1.2rem; }
 
+        /* ───────── Cute Luxury Dropdowns ───────── */
+
+.cute-select-wrap {
+  position: relative;
+}
+
+.cute-select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.02)
+    );
+
+  border: 1px solid rgba(196,151,90,0.35);
+
+  color: #fff;
+
+  padding:
+    1rem
+    3rem
+    1rem
+    1rem;
+
+  border-radius: 18px;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    border-color .3s ease,
+    transform .25s ease,
+    box-shadow .3s ease,
+    background .3s ease;
+
+  backdrop-filter: blur(12px);
+}
+
+.cute-select:hover {
+  border-color: #c4975a;
+
+  box-shadow:
+    0 0 0 1px rgba(196,151,90,0.25),
+    0 10px 25px rgba(0,0,0,0.25);
+
+  transform: translateY(-1px);
+}
+
+.cute-select:focus {
+  outline: none;
+
+  border-color: #c4975a;
+
+  box-shadow:
+    0 0 0 3px rgba(196,151,90,0.18),
+    0 10px 30px rgba(0,0,0,0.3);
+}
+
+.cute-select option {
+  background: #0a0a0a;
+  color: white;
+  font-size: 1rem;
+}
+
+.cute-select-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  color: #c4975a;
+  font-size: 0.9rem;
+
+  pointer-events: none;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .cute-select {
+    font-size: 0.95rem;
+    padding: 0.95rem 2.8rem 0.95rem 0.95rem;
+  }
+}
+
+
+
         /* Titles changed to Gold */
         .dt-field label { font-size: 0.65rem; font-weight: 600; letter-spacing: 0.25em; text-transform: uppercase; color: #c4975a; display: block; margin-bottom: 0.6rem; }
 
-        .dt-field input,
         .dt-field select {
-          width: 100%;
-          background: transparent;
-          border: none;
-          outline: none;
-          font-family: 'Cormorant Garamond', serif;
-          font-size: 1.2rem;
-          font-weight: 400;
-          color: #ffffff;
-          color-scheme: dark;
-          cursor: pointer;
-          appearance: none;
-          -webkit-appearance: none;
-        }
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ffffff;
+  color-scheme: dark;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.dt-field input[type="date"] {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #ffffff;
+  color-scheme: dark;
+  cursor: pointer;
+  /* NO appearance: none here — it kills the native date picker */
+}
+
+.dt-field input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+  opacity: 1;
+}
+
         .dt-field input::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
         .dt-field select option { background: #000000; color: #ffffff; }
         .dt-field-inner { position: relative; }
@@ -550,6 +686,64 @@ const handleStep3Continue = () => {
         .whatsapp-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #c4975a; color: #000000; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 1000; transition: transform 0.3s ease; }
         .whatsapp-float:hover { transform: scale(1.1); }
 
+/* ── Logo Area ── */
+.bk-logo-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.bk-logo {
+  width: 170px; /* reduced from 280px */
+  max-width: 75vw;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.45));
+  transition: transform 0.3s ease;
+}
+
+.bk-logo:hover {
+  transform: scale(1.02);
+}
+
+/* Brand Name */
+.bk-brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  font-weight: 400;
+  letter-spacing: 0.35em;
+  color: #ffffff;
+  margin-top: 0.3rem;
+  margin-bottom: 0.6rem;
+  text-align: center;
+}
+
+/* Location */
+.bk-brand-location {
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .bk-logo {
+    width: 120px;
+  }
+
+  .bk-brand-name {
+    font-size: 1.1rem;
+    letter-spacing: 0.22em;
+  }
+
+  .bk-brand-location {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+  }
+}
+
         @media (max-width: 600px) {
           .bk-body { padding: 2rem 1.25rem 1.5rem; }
           .cat-grid { grid-template-columns: 1fr; }
@@ -562,17 +756,22 @@ const handleStep3Continue = () => {
         {/* Orbs and backgrounds deleted */}
 
         <div className="bk-header">
-          <div className="bk-rule">
-            <div className="bk-rule-line" />
-            <div className="bk-rule-gem" />
-            <div className="bk-rule-line r" />
-          </div>
-          <span className="bk-eyebrow">Reservations</span>
-          <h2 className="bk-title">
-            Select <em>Your</em> Ritual
-          </h2>
-          <p className="bk-subtitle">Premium curation. Tailored finish.</p>
-        </div>
+  <div className="bk-logo-area">
+    <img
+      src={logo}
+      alt="Finer Nails Spa"
+      className="bk-logo"
+    />
+  </div>
+
+  <h1 className="bk-brand-name">
+    FINER NAILS & SPA
+  </h1>
+
+  <p className="bk-brand-location">
+    THE PLACE PLAZA · 3RD FLOOR · KISII
+  </p>
+</div>
 
         <div className="bk-card">
           {step <= 6 && (
@@ -728,6 +927,7 @@ const handleStep3Continue = () => {
             )}
 
             {/* STEP 3 */}
+                        {/* STEP 3 */}
             {step === 3 && (
               <div>
                 <h3 className="bk-step-title">Select Artist</h3>
@@ -744,7 +944,6 @@ const handleStep3Continue = () => {
                     />
                   ))}
                 </div>
-
                 <button className="bk-cta" disabled={!technician} onClick={handleStep3Continue}>
                   <span>Next Step</span>
                 </button>
@@ -752,35 +951,86 @@ const handleStep3Continue = () => {
             )}
 
             {/* STEP 4 */}
-            {step === 4 && (
-              <div>
-                <h3 className="bk-step-title">Secure Date & Time</h3>
-                <p className="bk-step-hint">Select from our real-time calendar availability window matrix.</p>
+{step === 4 && (
+  <div>
+    <h3 className="bk-step-title">Secure Date & Time</h3>
+    <p className="bk-step-hint">
+      Select your preferred day and time slot.
+    </p>
 
-                <div className="dt-grid">
-                  <div className="dt-field">
-                    <label>Select Date</label>
-                    <input type="date" min={today} value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} />
-                  </div>
-                  <div className="dt-field">
-                    <label>Select Time Window</label>
-                    <div className="dt-field-inner">
-                      <select value={selectedTime} onChange={(e) => setSelectedTime(e.target.value)}>
-                        <option value="">Choose Time Slot...</option>
-                        {TIME_SLOTS.map(t => (
-                          <option key={t.value} value={t.label}>{t.label}</option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                </div>
+    {(() => {
+      const upcomingDays = Array.from({ length: 14 }, (_, i) => {
+        const d = new Date();
+        d.setDate(d.getDate() + i);
 
-                <button className="bk-cta" disabled={!selectedDate || !selectedTime} onClick={handleStep4Continue}>
-                  <span>Next Step</span>
-                </button>
-              </div>
-            )}
+        return {
+          value: d.toISOString().split('T')[0],
+          label: d.toLocaleDateString('en-GB', {
+            weekday: 'long',
+            day: 'numeric',
+            month: 'short',
+          }),
+        };
+      });
 
+      return (
+        <div className="dt-grid">
+          <div className="dt-field">
+            <label>Select Day</label>
+
+            <div className="cute-select-wrap">
+              <select
+                className="cute-select"
+                value={selectedDate}
+                onChange={(e) => setSelectedDate(e.target.value)}
+              >
+                <option value="">Choose Your Day</option>
+
+                {upcomingDays.map((d) => (
+                  <option key={d.value} value={d.value}>
+                    {d.label}
+                  </option>
+                ))}
+              </select>
+
+              <span className="cute-select-icon">✦</span>
+            </div>
+          </div>
+
+          <div className="dt-field">
+            <label>Select Time</label>
+
+            <div className="cute-select-wrap">
+              <select
+                className="cute-select"
+                value={selectedTime}
+                onChange={(e) => setSelectedTime(e.target.value)}
+              >
+                <option value="">Choose Your Time</option>
+
+                {TIME_SLOTS.map((t) => (
+                  <option key={t.value} value={t.label}>
+                    {t.label}
+                  </option>
+                ))}
+              </select>
+
+              <span className="cute-select-icon">✦</span>
+            </div>
+          </div>
+        </div>
+      );
+    })()}
+
+    <button
+      className="bk-cta"
+      disabled={!selectedDate || !selectedTime}
+      onClick={handleStep4Continue}
+    >
+      <span>Next Step</span>
+    </button>
+  </div>
+)}
             {/* STEP 5 */}
             {step === 5 && (
               <div>
@@ -797,19 +1047,7 @@ const handleStep3Continue = () => {
                   <input type="tel" placeholder="e.g. 0745 557 460" value={clientPhone} onChange={(e) => setClientPhone(e.target.value)} />
                 </div>
 
-                <div className="step5-divider">
-                  <div className="step5-divider-line" />
-                  <span className="step5-divider-text">Reference Imagery</span>
-                  <div className="step5-divider-line" />
-                </div>
-
-                <div className="upload-label-tag">Inspiration Upload (Optional)</div>
-                <label className="upload-zone">
-                  <div className="upload-icon">✦</div>
-                  <div className="upload-name">Tap to share reference photos/nail ideas via WhatsApp later</div>
-                </label>
-
-                <button className="bk-cta" disabled={!isStep5Valid()} onClick={advance}>
+               <button className="bk-cta" disabled={!isStep5Valid()} onClick={advance}>
                   <span>Review Booking</span>
                 </button>
               </div>
@@ -862,7 +1100,7 @@ const handleStep3Continue = () => {
                 </div>
 
                 <button className="bk-cta" onClick={handleBookingSubmit}>
-                  <span>Transmit Confirmation</span>
+                  <span>Confirm Booking</span>
                 </button>
               </div>
             )}
@@ -870,17 +1108,22 @@ const handleStep3Continue = () => {
             {/* STEP 7 */}
             {step === 7 && (
               <div className="confirm-wrap">
-                <div className="confirm-icon">✦</div>
-                <h3 className="confirm-title">Request Staged</h3>
-                <p className="confirm-sub">Your application log data has been submitted successfully.</p>
+                <div className="bk-rule">
+                  <div className="bk-rule-line" />
+                  <div className="bk-rule-gem" />
+                  <div className="bk-rule-line r" />
+                </div>
+                 <h3 className="confirm-title">Thank You for Booking With Us</h3>
+                <p className="confirm-sub">
+                  We've received your appointment request and will confirm shortly via your phone number.</p>
 
                 <div className="confirm-table">
                   <div className="confirm-row">
-                    <span className="confirm-key">Client Target</span>
+                    <span className="confirm-key">Client</span>
                     <span className="confirm-val">{clientName}</span>
                   </div>
                   <div className="confirm-row">
-                    <span className="confirm-key">Service Combo</span>
+                    <span className="confirm-key">Service</span>
                     <span className="confirm-val">{serviceLabel}</span>
                   </div>
                   <div className="confirm-row">
@@ -890,7 +1133,7 @@ const handleStep3Continue = () => {
                 </div>
 
                 <button className="bk-reset" onClick={reset}>
-                  <span>Book Another Ritual</span>
+                  <span>Book Another Appointment</span>
                 </button>
               </div>
             )}

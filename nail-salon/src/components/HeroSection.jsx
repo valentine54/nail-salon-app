@@ -819,7 +819,7 @@ export default function HeroSection() {
           <div className="fn-media-layout">
 
             <div className="fn-main-media">
-              <img src="/3.jpeg" alt="Luxury nails" />
+              <img src="/nails/8.png" alt="Luxury nails" />
             </div>
 
             <div className="fn-media-blend" />

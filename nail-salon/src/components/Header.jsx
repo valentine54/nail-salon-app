@@ -10,6 +10,35 @@ export default function Header() {
   const { signOut } = useAuth();
   const navigate = useNavigate();
 
+  const handleSectionNavigate = (sectionId) => {
+  if (window.location.pathname !== '/') {
+    navigate(`/#${sectionId}`);
+
+    setTimeout(() => {
+      const el = document.getElementById(sectionId);
+
+      if (el) {
+        el.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+    }, 200);
+
+  } else {
+    const el = document.getElementById(sectionId);
+
+    if (el) {
+      el.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  }
+
+  setMenuOpen(false);
+};
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', onScroll);
@@ -17,11 +46,11 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { label: 'Services', href: '/#services' },
-    { label: 'Gallery',  href: '/#gallery'  },
-    { label: 'About',    href: '/#about'    },
-    { label: 'Contact',  href: '/location'  },
-  ];
+  { label: 'Services', section: 'services' },
+  { label: 'Gallery', section: 'gallery' },
+  { label: 'About', section: 'about' },
+  { label: 'Contact', path: '/location' },
+];
 
   return (
     <>
@@ -297,6 +326,39 @@ export default function Header() {
         .hdr-drawer-book:hover span,
         .hdr-drawer-book:hover svg { color: #000000; }
 
+        .hdr-nav-link-btn {
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.45rem 0.9rem;
+  position: relative;
+  transition: color 0.25s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Jost', sans-serif;
+}
+
+.hdr-nav-link-btn::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0.9rem;
+  right: 0.9rem;
+  height: 1px;
+  background: #c4975a;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(.25,.46,.45,.94);
+}
+
+.hdr-nav-link-btn:hover::after {
+  transform: scaleX(1);
+}
+
         /* ── Responsive ── */
         @media (max-width: 900px) {
           .hdr-nav { display: none; }
@@ -364,9 +426,18 @@ export default function Header() {
 
         {/* Centre nav */}
         <ul className="hdr-nav">
-  {navLinks.map(({ label, href }) => (
+  {navLinks.map(({ label, section, path }) => (
     <li key={label}>
-      <Link to={href}>{label}</Link>
+      {section ? (
+        <button
+          onClick={() => handleSectionNavigate(section)}
+          className="hdr-nav-link-btn"
+        >
+          {label}
+        </button>
+      ) : (
+        <Link to={path}>{label}</Link>
+      )}
     </li>
   ))}
 </ul>
@@ -403,16 +474,26 @@ export default function Header() {
 
       {/* Mobile drawer */}
       <div className={`hdr-drawer ${menuOpen ? 'open' : ''}`}>
-        {navLinks.map(({ label, href }) => (
-          <Link
-            key={label}
-            to={href}
-            className="hdr-drawer-link"
-            onClick={() => setMenuOpen(false)}
-          >
-            {label}
-          </Link>
-        ))}
+        {navLinks.map(({ label, section, path }) =>
+  section ? (
+    <button
+      key={label}
+      className="hdr-drawer-link"
+      onClick={() => handleSectionNavigate(section)}
+    >
+      {label}
+    </button>
+  ) : (
+    <Link
+      key={label}
+      to={path}
+      className="hdr-drawer-link"
+      onClick={() => setMenuOpen(false)}
+    >
+      {label}
+    </Link>
+  )
+)}
 
         <Link
           to="/booking"
