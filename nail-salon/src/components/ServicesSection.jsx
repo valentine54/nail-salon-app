@@ -2,9 +2,16 @@
 import { useEffect, useRef, useState } from 'react';
 import gel from "../assets/images/pedi-1.jpg";
 import acrylic from "../assets/images/gold-foil-nail-art.jpg";
-import art from "../assets/images/blush-pink-gel-nails.jpg";
+import art from "/nails/8.png";
 import pedicure from "../assets/images/pedi-5.jpg";
 import bridal from "../assets/images/gold-foil-nail-art.jpg";
+import xtra from "/2.jpeg";
+import tips from "/5.jpeg";
+import clean from "/nails/clean.jpg";
+import medium from "/nails/15.png";
+import gelx from "/nails/9.png";
+import classic from "/17.jpg";
+
 
 const services = [
   // ── PEDICURE ──────────────────────────────────────────────
@@ -66,16 +73,16 @@ const services = [
     name: "Acrylic Extensions (Toes)",
     tag: null,
     category: "pedicure",
-    description: "Sculpted acrylic extensions on the toes for added length and a perfectly shaped finish. Great for special occasions.",
+    description: "Acrylic extensions on the toes for added length and a perfectly shaped finish. Great for special occasions.",
     price: "KES 3,000",
     image: gel,
-    detail: "Sculpted extensions · Custom shape · Durable",
+    detail: "Extensions · Custom shape · Durable",
   },
   {
     name: "Gel X Toe Extensions",
     tag: null,
     category: "pedicure",
-    description: "An improved version of stick-ons — instead of nail glue we use special gel to adhere false tips to the toes. Easy to soak off and leaves no residue.",
+    description: "An improved version of stick-ons - instead of nail glue we use special gel to adhere false tips to the toes. Easy to soak off and leaves no residue.",
     price: "KES 2,500",
     image: art,
     detail: "Gel adhesion · Soak-off safe · No residue",
@@ -97,7 +104,7 @@ const services = [
     category: "manicure",
     description: "A timeless manicure with soak, cuticle care, nail shaping and a regular polish finish. Clean, neat and polished.",
     price: "KES 700",
-    image: art,
+    image: classic,
     detail: "Soak · Shape · Cuticle care · Regular polish",
   },
   {
@@ -106,14 +113,14 @@ const services = [
     category: "manicure",
     description: "An elevated manicure experience with exfoliation, extended hand massage, hot towel wrap and a polish finish of your choice.",
     price: "KES 1,500",
-    image: art,
+    image: clean,
     detail: "Exfoliation · Hot towel · Extended massage",
   },
   {
     name: "Overlays",
     tag: null,
     category: "manicure",
-    description: "Strengthen and protect your natural nails with BIAB, Gum gel, or Acrylic overlays. No extensions — just reinforced, beautiful nails.",
+    description: "Strengthen and protect your natural nails with BIAB, Gum gel, or Acrylic overlays. No extensions - just reinforced, beautiful nails.",
     price: "KES 2,300",
     image: acrylic,
     detail: "BIAB · Gum gel · Acrylic · Natural nail",
@@ -122,9 +129,9 @@ const services = [
     name: "Gel X Extensions",
     tag: null,
     category: "manicure",
-    description: "An improved version of stick-ons — instead of nail glue we use special gel to adhere the false tips. Easy to soak off and leaves no residue.",
+    description: "An improved version of stick-ons - instead of nail glue we use special gel to adhere the false tips. Easy to soak off and leaves no residue.",
     price: "KES 2,500",
-    image: art,
+    image: gelx,
     detail: "Soak-off safe · No residue · Freehand or stencil",
   },
   {
@@ -133,14 +140,14 @@ const services = [
     category: "manicure",
     description: "Soft gel tips adhered and built up with gumgel or builder gel for a lightweight, flexible extension with a flawless finish.",
     price: "KES 2,800",
-    image: acrylic,
+    image: tips,
     detail: "Lightweight · Flexible · Natural finish",
   },
   {
     name: "Short Acrylic Extensions",
     tag: null,
     category: "manicure",
-    description: "Sculpted short acrylic extensions — perfect for those who want the look and durability of acrylics with a practical, everyday length.",
+    description: "Short acrylic extensions - perfect for those who want the look and durability of acrylics with a practical, everyday length.",
     price: "KES 3,000",
     image: acrylic,
     detail: "Short length · Custom shape · Durable",
@@ -149,18 +156,18 @@ const services = [
     name: "Medium / Long Acrylics",
     tag: null,
     category: "manicure",
-    description: "Sculpted acrylic extensions at medium or long length. Shaped to your preference — almond, coffin, stiletto, or square.",
+    description: "Acrylic extensions at medium or long length. Shaped to your preference - almond, coffin, stiletto, or square.",
     price: "KES 4,000",
-    image: acrylic,
+    image: medium,
     detail: "Medium or long · Custom shape · All occasions",
   },
   {
     name: "Xtra Long Acrylics",
     tag: null,
     category: "manicure",
-    description: "Extra-long sculpted acrylics — a bold, dramatic statement set built for maximum length and impact. Ombré available.",
+    description: "Extra-long Acrylics - a bold, dramatic statement set built for maximum length and impact. Ombré available.",
     price: "KES 4,500",
-    image: bridal,
+    image: xtra,
     detail: "Xtra long · Ombré optional · Statement set",
   },
 
