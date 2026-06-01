@@ -3,15 +3,27 @@ import { useEffect, useRef, useState } from 'react';
 import gel from "../assets/images/pedi-1.jpg";
 import acrylic from "../assets/images/gold-foil-nail-art.jpg";
 import art from "/nails/8.png";
-import pedicure from "../assets/images/pedi-5.jpg";
+import pedi1 from "/nails/2.png";
+import pedi2 from "/nails/1.png";
+import pedi3 from "/nails/5.png";
+import pedi4 from "/nails/11.png";
+import pedi5 from "/nails/2.png";
+import pedi6 from "/nails/2.png";
+import pedi7 from "/nails/5.png";
+import pedi8 from "/nails/16.png";
 import bridal from "../assets/images/gold-foil-nail-art.jpg";
 import xtra from "/2.jpeg";
 import tips from "/5.jpeg";
 import clean from "/nails/clean.jpg";
 import medium from "/nails/15.png";
 import gelx from "/nails/9.png";
+import spa1 from "/nails/facial.jpg";
+import spa2 from "/nails/deep-cleanse.jpg";
+import spa3 from "/nails/deep-cleanse.jpg";
+import spa4 from "/nails/gents.jpg";
+import spa5 from "/nails/scalp.jpg";
+import spa6 from "/nails/scrub.jpg";
 import classic from "/17.jpg";
-
 
 const services = [
   // ── PEDICURE ──────────────────────────────────────────────
@@ -21,7 +33,7 @@ const services = [
     category: "pedicure",
     description: "Long-lasting gel colour applied to your natural toenails for a glossy, chip-free finish that lasts 2–3 weeks.",
     price: "KES 800",
-    image: pedicure,
+    image: pedi1,
     detail: "Gel colour · 2–3 week wear · Quick finish",
   },
   {
@@ -30,7 +42,7 @@ const services = [
     category: "pedicure",
     description: "A classic pedicure with soak, cuticle care, nail shaping, callus removal and a moisturising massage. Clean and refreshed.",
     price: "KES 1,300",
-    image: pedicure,
+    image: pedi2,
     detail: "Soak · Shape · Callus removal · Massage",
   },
   {
@@ -39,7 +51,7 @@ const services = [
     category: "pedicure",
     description: "Our classic pedicure treatment finished with a long-lasting gel polish colour of your choice.",
     price: "KES 1,800",
-    image: pedicure,
+    image: pedi3,
     detail: "Full pedicure · Gel finish · 2–3 week wear",
   },
   {
@@ -48,7 +60,7 @@ const services = [
     category: "pedicure",
     description: "An elevated spa pedicure with extended massage, exfoliation, hot towel treatment and a gel polish finish.",
     price: "KES 2,500",
-    image: pedicure,
+    image: pedi2,
     detail: "Spa treatment · Extended massage · Gel finish",
   },
   {
@@ -57,7 +69,7 @@ const services = [
     category: "pedicure",
     description: "A refreshing lemon-infused jelly soak pedicure that softens and brightens skin, finished with a gel polish for a radiant look.",
     price: "KES 3,000",
-    image: pedicure,
+    image: pedi3,
     detail: "Jelly soak · Brightening · Gel finish",
   },
   {
@@ -66,7 +78,7 @@ const services = [
     category: "pedicure",
     description: "We clean the toenails and restructure them using acrylic overlays. Some designs & décor are charged separately. A pedicure prior is recommended.",
     price: "KES 2,500",
-    image: gel,
+    image: pedi4,
     detail: "Acrylic overlay · 2–3 week wear · Natural nail safe",
   },
   {
@@ -75,7 +87,7 @@ const services = [
     category: "pedicure",
     description: "Acrylic extensions on the toes for added length and a perfectly shaped finish. Great for special occasions.",
     price: "KES 3,000",
-    image: gel,
+    image: pedi7,
     detail: "Extensions · Custom shape · Durable",
   },
   {
@@ -84,7 +96,7 @@ const services = [
     category: "pedicure",
     description: "An improved version of stick-ons - instead of nail glue we use special gel to adhere false tips to the toes. Easy to soak off and leaves no residue.",
     price: "KES 2,500",
-    image: art,
+    image: pedi8,
     detail: "Gel adhesion · Soak-off safe · No residue",
   },
 
@@ -178,7 +190,7 @@ const services = [
     category: "spa",
     description: "Deep cleanse, vacuum extraction, 2-step exfoliation, soothing hydrating mask & LED light therapy. For a refreshed, clearer complexion.",
     price: "KES 5,000.00",
-    image: bridal,
+    image: spa1,
     detail: "LED therapy · Vacuum extraction · 75–90 min",
   },
   {
@@ -187,7 +199,7 @@ const services = [
     category: "spa",
     description: "Deep cleanse, 2-step exfoliation, S&H mask and LED light therapy. Perfect for an even, radiant complexion.",
     price: "KES 4,500.00",
-    image: bridal,
+    image: spa2,
     detail: "LED therapy · S&H mask · Glow finish",
   },
   {
@@ -196,7 +208,7 @@ const services = [
     category: "spa",
     description: "Deep cleanse & microneedling. Targets acne, blackheads, large pores, unevenness & pigmentation for visibly clearer skin.",
     price: "KES 10,000.00",
-    image: bridal,
+    image: spa3,
     detail: "Microneedling · Targets acne & pigmentation",
   },
   {
@@ -205,7 +217,7 @@ const services = [
     category: "spa",
     description: "Deep cleanse, derma abrasion & soothing hydrating mask. Clears dead skin & oil build-up revealing a smoother, clean face.",
     price: "KES 4,000.00",
-    image: bridal,
+    image: spa4,
     detail: "Derma abrasion · Oil control · Men's treatment",
   },
   {
@@ -214,7 +226,7 @@ const services = [
     category: "spa",
     description: "Deep cleanse, dermaplaning / derma abrasion & S&H mask. Removes impurities and revitalizes the scalp.",
     price: "KES 4,500.00",
-    image: bridal,
+    image: spa5,
     detail: "Dermaplaning · Scalp detox · Revitalizing",
   },
   {
@@ -223,7 +235,7 @@ const services = [
     category: "spa",
     description: "Full body exfoliation to unclog pores, improve skin texture and reveal a radiant, smooth glow from head to toe.",
     price: "KES 6,000.00",
-    image: bridal,
+    image: spa6,
     detail: "Full body · Pore refinement · Radiant finish",
   },
 ];

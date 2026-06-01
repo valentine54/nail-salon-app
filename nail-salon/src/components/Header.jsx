@@ -2,12 +2,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/finer-logo.png"
-import { useAuth } from './context/AuthContext';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const { signOut } = useAuth();
   const navigate = useNavigate();
 
   const handleSectionNavigate = (sectionId) => {
