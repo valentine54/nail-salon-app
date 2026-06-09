@@ -227,7 +227,7 @@ const services = [
     description: "Deep cleanse, dermaplaning / derma abrasion & S&H mask. Removes impurities and revitalizes the scalp.",
     price: "KES 4,500.00",
     image: spa5,
-    video: "/videos/gel-polish-demo.mp4",
+    video: "/nails/video.mp4",
     detail: "Dermaplaning · Scalp detox · Revitalizing",
   },
   {
