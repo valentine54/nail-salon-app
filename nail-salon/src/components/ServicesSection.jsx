@@ -377,7 +377,6 @@ export default function ServicesSection() {
   return (
     <>
       <style>{`
-
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap');
 
         .svc-root {
