@@ -24,7 +24,7 @@ import spa4 from "/nails/gents.jpg";
 import spa5 from "/nails/scalp.jpg";
 import spa6 from "/nails/scrub.jpg";
 import classic from "/17.jpg";
-import lemon from "/nails/lemon.jpg";
+import lemon from "/nails/le-mon.jpg";
 
 const services = [
   // ── PEDICURE ──────────────────────────────────────────────
@@ -234,7 +234,7 @@ const services = [
     description: "Deep cleanse, dermaplaning / derma abrasion & S&H mask. Removes impurities and revitalizes the scalp.",
     price: "KES 4,500.00",
     image: spa5,
-    video: "/nails/video.mp4",
+    video: "/nails/vi-deo.mp4",
     detail: "Dermaplaning · Scalp detox · Revitalizing",
   },
   {
