@@ -308,7 +308,7 @@ export default function AboutSection() {
               <div className="abt-sig">
                 <div className="abt-sig-avatar">J</div>
                 <div>
-                  <span className="abt-sig-name">Jane Doe</span>
+                  <span className="abt-sig-name">Dennis</span>
                   <span className="abt-sig-role">Founder & Lead Technician</span>
                 </div>
               </div>
@@ -337,7 +337,7 @@ export default function AboutSection() {
                 <p className="abt-quote-text">
                   We create a moment of stillness in a busy day and send you out feeling like yourself, only more so.
                 </p>
-                <span className="abt-quote-attr">- Jane Doe, Tech Lead</span>
+                <span className="abt-quote-attr">- Dennis, Tech Lead</span>
               </div>
             </div>
 

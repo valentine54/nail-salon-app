@@ -227,6 +227,7 @@ const services = [
     description: "Deep cleanse, dermaplaning / derma abrasion & S&H mask. Removes impurities and revitalizes the scalp.",
     price: "KES 4,500.00",
     image: spa5,
+    video: "/videos/gel-polish-demo.mp4",
     detail: "Dermaplaning · Scalp detox · Revitalizing",
   },
   {
@@ -261,18 +262,67 @@ function useInView(threshold = 0.08) {
   }, [threshold]);
   return [ref, inView];
 }
-
 function ServiceCard({ service, index }) {
+  const videoRef = useRef(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
+  // Auto-play video on hover
+  const handleMouseEnter = () => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(() => {});
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+  };
+
   return (
     <div
       className="svc-card"
       style={{
         animationDelay: `${0.05 + index * 0.07}s`,
       }}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      {/* Image */}
+      {/* Image or Video */}
       <div className="svc-img-wrap">
-        <img src={service.image} alt={service.name} className="svc-img" />
+        {service.video ? (
+          <>
+            {/* Fallback image shown while video loads */}
+            <img
+              src={service.image}
+              alt={service.name}
+              className="svc-img"
+              style={{ opacity: videoLoaded ? 0 : 1 }}
+            />
+            {/* Video */}
+            <video
+              ref={videoRef}
+              src={service.video}
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              onLoadedData={() => setVideoLoaded(true)}
+              style={{
+                position: 'absolute',
+                inset: 0,
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                opacity: videoLoaded ? 1 : 0,
+                transition: 'opacity 0.3s ease',
+              }}
+            />
+          </>
+        ) : (
+          <img src={service.image} alt={service.name} className="svc-img" />
+        )}
         <div className="svc-img-overlay" />
         {service.tag && <span className="svc-tag">{service.tag}</span>}
         <div className="svc-price-badge">{service.price}</div>
@@ -286,7 +336,6 @@ function ServiceCard({ service, index }) {
         </div>
         <p className="svc-desc">{service.description}</p>
         <p className="svc-detail">{service.detail}</p>
-
       </div>
     </div>
   );
@@ -586,6 +635,17 @@ export default function ServicesSection() {
   color: rgba(245,240,232,0.72);
   letter-spacing: 0.03em;
   animation: marquee 14s linear infinite;
+}
+.svc-img-wrap video {
+  transition: opacity 0.4s ease;
+}
+
+.svc-img-wrap video::-webkit-media-controls {
+  display: none !important;
+}
+
+.svc-card:hover video {
+  opacity: 1;
 }
 
 @keyframes marquee {
