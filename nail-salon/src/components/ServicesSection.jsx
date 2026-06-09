@@ -24,6 +24,7 @@ import spa4 from "/nails/gents.jpg";
 import spa5 from "/nails/scalp.jpg";
 import spa6 from "/nails/scrub.jpg";
 import classic from "/17.jpg";
+import lemon from "/nails/lemon.jpg";
 
 const services = [
   // ── PEDICURE ──────────────────────────────────────────────
@@ -34,6 +35,7 @@ const services = [
     description: "Long-lasting gel colour applied to your natural toenails for a glossy, chip-free finish that lasts 2–3 weeks.",
     price: "KES 800",
     image: pedi1,
+    imagePosition: "50% 80%",
     detail: "Gel colour · 2–3 week wear · Quick finish",
   },
   {
@@ -52,6 +54,7 @@ const services = [
     description: "Our classic pedicure treatment finished with a long-lasting gel polish colour of your choice.",
     price: "KES 1,800",
     image: pedi3,
+    imagePosition: "50% 80%",
     detail: "Full pedicure · Gel finish · 2–3 week wear",
   },
   {
@@ -69,7 +72,7 @@ const services = [
     category: "pedicure",
     description: "A refreshing lemon-infused jelly soak pedicure that softens and brightens skin, finished with a gel polish for a radiant look.",
     price: "KES 3,000",
-    image: pedi3,
+    image: lemon,
     detail: "Jelly soak · Brightening · Gel finish",
   },
   {
@@ -79,6 +82,7 @@ const services = [
     description: "We clean the toenails and restructure them using acrylic overlays. Some designs & décor are charged separately. A pedicure prior is recommended.",
     price: "KES 2,500",
     image: pedi4,
+    imagePosition: "50% 80%",
     detail: "Acrylic overlay · 2–3 week wear · Natural nail safe",
   },
   {
@@ -88,6 +92,7 @@ const services = [
     description: "Acrylic extensions on the toes for added length and a perfectly shaped finish. Great for special occasions.",
     price: "KES 3,000",
     image: pedi7,
+    imagePosition: "50% 80%",
     detail: "Extensions · Custom shape · Durable",
   },
   {
@@ -126,6 +131,7 @@ const services = [
     description: "An elevated manicure experience with exfoliation, extended hand massage, hot towel wrap and a polish finish of your choice.",
     price: "KES 1,500",
     image: clean,
+    imagePosition: "50% 60%",
     detail: "Exfoliation · Hot towel · Extended massage",
   },
   {
@@ -153,6 +159,7 @@ const services = [
     description: "Soft gel tips adhered and built up with gumgel or builder gel for a lightweight, flexible extension with a flawless finish.",
     price: "KES 2,800",
     image: tips,
+    imagePosition: "50% 100%",
     detail: "Lightweight · Flexible · Natural finish",
   },
   {
@@ -298,7 +305,10 @@ function ServiceCard({ service, index }) {
               src={service.image}
               alt={service.name}
               className="svc-img"
-              style={{ opacity: videoLoaded ? 0 : 1 }}
+              style={{
+                  objectPosition: service.imagePosition || "center",
+                  opacity: videoLoaded ? 0 : 1
+              }}
             />
             {/* Video */}
             <video
@@ -321,8 +331,15 @@ function ServiceCard({ service, index }) {
             />
           </>
         ) : (
-          <img src={service.image} alt={service.name} className="svc-img" />
-        )}
+  <img
+    src={service.image}
+    alt={service.name}
+    className="svc-img"
+    style={{
+      objectPosition: service.imagePosition || "center"
+    }}
+  />
+)}
         <div className="svc-img-overlay" />
         {service.tag && <span className="svc-tag">{service.tag}</span>}
         <div className="svc-price-badge">{service.price}</div>
@@ -558,12 +575,14 @@ export default function ServicesSection() {
           overflow: hidden;
         }
         .svc-img {
-          width: 100%; height: 100%;
-          object-fit: cover;
-          display: block;
-          transition: transform 0.7s cubic-bezier(.25,.46,.45,.94), filter 0.5s ease;
-          filter: brightness(0.75) saturate(0.85);
-        }
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* default center */
+  display: block;
+  transition: transform 0.7s cubic-bezier(.25,.46,.45,.94), filter 0.5s ease;
+  filter: brightness(0.75) saturate(0.85);
+}
         .svc-card:hover .svc-img {
           transform: scale(1.07);
           filter: brightness(0.65) saturate(0.7);
